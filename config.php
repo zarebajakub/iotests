@@ -3,7 +3,7 @@
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "localhost";
-$dbName = "testowa";
+$dbName = "projekt_io_db";
 
 $TAB_TABELA = "tabela";
 
