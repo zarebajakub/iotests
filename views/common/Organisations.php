@@ -3,15 +3,9 @@
 $doc_root = $_SERVER['DOCUMENT_ROOT'];
 
 require_once $doc_root.'/config.php';
-require_once 'baseDao.php';
-echo '<br>';
+require_once $doc_root.'/dao/baseDao.php';
 
-$login = $_POST['login'];
-$password = $_POST['password'];
-
-$query = "SELECT * FROM $TAB_TABELA";
-
-$result = query($query);
+$result = query("SELECT * FROM $TAB_TABELA");
 
 echo "<br><br>";
 

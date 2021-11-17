@@ -2,13 +2,14 @@
 
 namespace models;
 
-class Task implements baseModelInterface
+class Client implements baseModelInterface
 {
     public $id;
-    public $userId;
-    public $createdAt;
-    public $userId;
-    public $description;
+    public $name;
+    public $surname;
+    public $email;
+    public $telefon;
+    public $companyName;
 
     public function validate()
     {
