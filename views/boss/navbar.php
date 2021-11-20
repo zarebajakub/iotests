@@ -6,16 +6,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="">Home</a></li>
+                <li><a href="profile.php">Profil</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">                 
-                <li><a href="login.php">Zaloguj</a></li>
+                <li>Zadania</li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="register.php">Zarejestruj</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/common/organisations.php">Pokaz dostępne firmy</a></li>
+                <li>Pracownicy</li>
             </ul>
         </div>
     </div>
