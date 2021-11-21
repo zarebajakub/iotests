@@ -9,7 +9,7 @@
                 <li><a href="">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">                 
-                <li><a href="login.php">Zaloguj</a></li>
+                <li><a href="login.html">Zaloguj</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="register.php">Zarejestruj</a></li>

@@ -14,3 +14,14 @@ function query($query)
         throw $dbExc;
     }
 }
+
+function login($email, $pass)
+{
+    $result = query('SELECT * FROM ... WHERE ');
+
+    if($result)  { return $result; }
+
+    $client = query('');
+
+    return $client;
+}
