@@ -6,27 +6,25 @@ require_once $doc_root.'/common.php';
 
 
 $email = $_POST['email'];
-$password = $_POST['pass'];
+$password = password_hash($_POST['pass'],  PASSWORD_DEFAULT);
 
 $user = ['uprawnienia'=>'EMPLOYEE',
 'param2'=>'value2'];//findUser($email, $password);
 if($user)
 {
-    if(isset($user['uprawnienia']))
+    $userType = whoIsIt($user);
+    if($userType == EMPLOYEE)
     {
-        if($user['uprawnienia'] == 'EMPLOYEE')
-        {
-            redirect('/views/employee/index.php', $user);
-        }
-        else if($user['uprawnienia'] == 'BOSS')
-        {
-            redirect('/views/boss/index.php', $user);
-        }
+        redirect('/views/employee/index.php', $user);
     }
-    else if(isset($user['u_id']))
+    else if($userType == BOSS)
+    {
+        redirect('/views/boss/index.php', $user);
+    }
+    else if($userType == CLIENT)
     {
         redirect('/views/client/index.php', $user);
     }
 }
-redirect('index.html', $user);
+redirect('index.html');
 ?>
