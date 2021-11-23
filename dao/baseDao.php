@@ -81,9 +81,14 @@ function viewEmployes()
 	return query("SELECT * FROM users");	
 }
 
-function addTask($project_id,$user_id, $desc) //parameters?
+function addTask($project_id,$user_id, $desc)
 {
-	return query("INSERT INTO tasks(project_id, user_id, description) VALUES ($project_id,$user_id,$desc");
+	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,".makeSafeForDb($desc).")");
+}
+
+function deleteTask($project_id,$user_id)
+{
+	return query("DELETE FROM tasks WHERE projects_id = $project_id AND user_id = $user_id");
 }
 
 function markAsCompletedTask($task_id)

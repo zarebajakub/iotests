@@ -8,8 +8,7 @@ require_once $doc_root.'/common.php';
 $email = $_POST['email'];
 $password = password_hash($_POST['pass'],  PASSWORD_DEFAULT);
 
-$user = ['uprawnienia'=>'EMPLOYEE',
-'param2'=>'value2'];//findUser($email, $password);
+$user = findUser($email, $password);
 if($user)
 {
     $userType = whoIsIt($user);

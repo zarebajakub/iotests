@@ -9,7 +9,7 @@
                 <li><a href="profile.php">Profil</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">                 
-                <li>Zadania</li>
+                <li><a href="view-tasks.php">Zadania</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>Klienci</li>
