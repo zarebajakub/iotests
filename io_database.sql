@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Czas generowania: 23 Lis 2021, 11:12
+-- Czas generowania: 23 Lis 2021, 11:32
 -- Wersja serwera: 10.1.48-MariaDB-0+deb9u2
 -- Wersja PHP: 7.0.33-0+deb9u11
 
@@ -27,13 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clients` (
-  `c_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `telefon` varchar(255) NOT NULL,
-  `adres_firmy` varchar(255) NOT NULL
+  `clients_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `telefon` varchar(255) DEFAULT NULL,
+  `adres_firmy` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -44,7 +44,7 @@ CREATE TABLE `clients` (
 
 CREATE TABLE `organization` (
   `organization_id` int(11) NOT NULL,
-  `owner` int(11) NOT NULL
+  `owner` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,10 +54,10 @@ CREATE TABLE `organization` (
 --
 
 CREATE TABLE `projects` (
-  `p_id` int(11) NOT NULL,
-  `organization_id` int(11) NOT NULL,
-  `c_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `projects_id` int(11) NOT NULL,
+  `organization_id` int(11) DEFAULT NULL,
+  `c_id` int(11) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -89,11 +89,11 @@ INSERT INTO `tabela` (`idtabeli`, `nazwa`) VALUES
 
 CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `finished` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `projects_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `finished` tinyint(1) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -104,12 +104,12 @@ CREATE TABLE `tasks` (
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `organization_id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `uprawnienia` int(11) NOT NULL
+  `organization_id` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `uprawnienia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `users` (
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
-  ADD PRIMARY KEY (`c_id`);
+  ADD PRIMARY KEY (`clients_id`);
 
 --
 -- Indexes for table `organization`
@@ -132,7 +132,7 @@ ALTER TABLE `organization`
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
-  ADD PRIMARY KEY (`p_id`);
+  ADD PRIMARY KEY (`projects_id`);
 
 --
 -- Indexes for table `tabela`
@@ -160,7 +160,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `clients_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `organization`
 --
@@ -170,7 +170,7 @@ ALTER TABLE `organization`
 -- AUTO_INCREMENT dla tabeli `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `projects_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `tabela`
 --
