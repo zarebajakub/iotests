@@ -2,7 +2,7 @@
 
 namespace models;
 
-class User implements baseModelInterface
+class User
 {
     public $id;
     public $organisationId;
@@ -12,25 +12,15 @@ class User implements baseModelInterface
     public $email;
     public $type; // employee, boss
 
-    public function __construct($userMap)
+    public function __construct($userMap=[])
     {
         if(isset($userMap['organisationId'])) { $this->organisationId = $userMap['organisationId']; }
         if(isset($userMap['name'])) { $this->name = $userMap['name']; }
         if(isset($userMap['surname'])) { $this->surname = $userMap['surname']; }
-        if(isset($userMap['password'])) { $this->password = $userMap['pass']; }
+        if(isset($userMap['pass'])) { $this->password = $userMap['pass']; }
         if(isset($userMap['email'])) { $this->email = $userMap['email']; }
         if(isset($userMap['type'])) { $this->type = $userMap['type']; }
     }
 
-    public function validate()
-    {
-        $ok = true;
-
-        return $ok;
-    }
-    public function toMap()
-    {
-
-    }
 
 }

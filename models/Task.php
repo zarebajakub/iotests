@@ -8,10 +8,12 @@ class Task implements baseModelInterface
     public $projectId;
     public $createdAt;
     public $userId;
+    PUBLIC $finished;
     public $description;
 
     public function __construct($userMap)
     {
+        $this->finished = false;
         if(isset($userMap['projectId'])) { $this->projectId = $userMap['projectId']; }
         //todo reszta
     }

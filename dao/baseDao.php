@@ -1,15 +1,44 @@
 <?php
 require_once $doc_root.'/config.php';
+require_once $doc_root.'/common.php';
 
 use models\User;
 use models\Client;
+use models\Task;
 
 function query($query)
 {
     try
     {
-        global $link;
-        return mysqli_query($link, $query);
+        global $mysql;
+        $resultObject = $mysql->query($query);
+        
+        if(!$resultObject) 
+        { 
+            debug($mysql->error); 
+            return false; 
+        }
+
+        if($resultObject === true)
+        {
+            return true;
+        }
+        else if($resultObject->num_rows > 1)
+        {
+            $result = $resultObject->fetch_all(MYSQLI_ASSOC);
+        }
+        else if($resultObject->num_rows == 1)
+        {
+            $result = $resultObject->fetch_assoc();
+        }
+        else
+        {
+            $result = false;
+        }
+        
+        $resultObject->free_result();
+
+        return $result;
     }
     catch(Exception $dbExc)
     {
@@ -18,8 +47,16 @@ function query($query)
     }
 }
 
+function test()
+{
+    return query("SELECT * FROM tabela");
+}
+
 function findUser($email, $passEncrypted)
 {
+    $email = makeSafeForDb($email);
+    $passEncrypted = makeSafeForDb($passEncrypted);
+    
     $result = query("SELECT * FROM users WHERE email = $email AND password = $passEncrypted");
 
     if($result)  { return $result; }
@@ -31,51 +68,53 @@ function findUser($email, $passEncrypted)
 
 function registerUser(User $user)
 {
-    $result = query("INSERT INTO users(email,password,name,surname) VALUES ($email,$password,$name,$surname)");
-
-
+    return query("INSERT INTO users(email, password) VALUES (".makeSafeForDb($user->email).", ".makeSafeForDb($user->password).")");
 }
 
 function registerClient(Client $client)
 {
-    $result = query("INSERT INTO users(email,password,name,surname,telefon,nazwa_firmy) VALUES ($email,$password,$name,$surname,$phoneNumber,$companyName)");
-
-    
+    return query("INSERT INTO users(email,password) VALUES (".$client->email.",".$client->password.")");   
 }
 
 function viewEmployes()
 {
-	$result = query("SELECT * FROM users");	
+	return query("SELECT * FROM users");	
 }
 
-function addTask($p_id,$user_id) //parameters?
+function addTask($project_id,$user_id, $desc) //parameters?
 {
-	$result = query("INSERT INTO tasks(p_id,user_id,description,finished,created_at) VALUES ($p_id,$user_id,$description,0,CURRENT_TIMESTAMP");
+	return query("INSERT INTO tasks(project_id, user_id, description) VALUES ($project_id,$user_id,$desc");
 }
 
 function markAsCompletedTask($task_id)
 {
-	$result = query("UPDATE tasks SET finished=1 WHERE task_id='$task_id'");
+	return query("UPDATE tasks SET finished=1 WHERE task_id='$task_id'");
 }
 
-function addEmployee($organization_id)
+function addEmployee($organization_id) //TODO PRZEMYŚLEĆ CZY W TYM MOMENCIE EMPLOYEE MA JUŻ SWOJE KONTO
 {
-	$result = query("INSERT INTO users VALUES ($organization_id,$email,$password,$name,$surname,2)");
+	return query("INSERT INTO users VALUES ()");
 }
 
+ // BEDZIE MUSIAŁO BYC DWOJAKO DLA KLIENTA I USERA EWENTUALNIE ZROBIĆ TYLKO DLA KLIENTA
 function editProfile()
 {
-	$result = query("UPDATE user SET (password,name,surname) = ($password,$name,$surname)");
+	return query("UPDATE user SET (password,name,surname) = ($password,$name,$surname)");
 }
 
-function editTask($task_id)
+function editTask(Task $task)
 {
-	$result = query("UPDATE task SET description=$description WHERE task_id=$task_id");
+	return query("UPDATE task SET description=$task->description WHERE task_id=$task->id");
 }
 
-function viewTasks($user_id)
+function viewTasksEmployee($userId)
 {
-	$result = query("SELECT * FROM tasks WHERE user_id=$user_id");
+	return query("SELECT * FROM tasks WHERE user_id=$userId");
+}
+
+function viewTasksBoss($organisationId)
+{
+	return query("SELECT * FROM tasks WHERE organization_id=$organisationId");
 }
 
 

@@ -4,6 +4,24 @@ define('CLIENT', 1);
 define('EMPLOYEE', CLIENT + 1);
 define('BOSS', EMPLOYEE + 1);
 
+function debug($data)
+{
+    if(is_array($data))
+    {
+        foreach($data as $el)
+        {
+            print_r($el);
+            echo "<br>";
+        }
+    }
+    else
+    {
+        print_r($data);
+    }
+    echo "<br>";
+    die();
+}
+
 function redirect($url, $data=[])
 {
     if (session_status() == PHP_SESSION_NONE) 
@@ -33,6 +51,11 @@ function whoIsIt($user)
         return CLIENT;
     }
     return false;
+}
+
+function makeSafeForDb($str)
+{
+    return '"'.$str.'"';
 }
 
 
