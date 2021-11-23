@@ -5,10 +5,16 @@ namespace models;
 class Task implements baseModelInterface
 {
     public $id;
-    public $userId;
+    public $projectId;
     public $createdAt;
     public $userId;
     public $description;
+
+    public function __construct($userMap)
+    {
+        if(isset($userMap['projectId'])) { $this->projectId = $userMap['projectId']; }
+        //todo reszta
+    }
 
     public function validate()
     {

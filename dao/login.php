@@ -1,5 +1,7 @@
 <?php
 
+//RACZEJ DO USUNIĘCIA
+
 $doc_root = $_SERVER['DOCUMENT_ROOT'];
 
 require_once $doc_root.'/config.php';
