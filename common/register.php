@@ -18,7 +18,7 @@ if($_POST['pass'] != $_POST['pass-repeat'])
     redirect('signup.html', ['Hasła powinny być takie same']);
 }
 
-$password = password_hash($_POST['pass'],  PASSWORD_DEFAULT);
+$password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
 
 $user = findUser($email, $password);
 if($user)
@@ -28,15 +28,50 @@ if($user)
 
 // w tym momencie trzeba sprawdzic jakie konto to ma być - employee czy klient czy boss
 
-$user = new User();
-$user->password = $password;
-$user->email = $email;
-$user->id = registerUser($user);
+$userType = $_POST['user-type'];
 
+$url = "";
 
-if($user->id)
+if($userType == 'employee')
 {
-    redirect('/views/employee/index.php', [$user]);
+    $user = new User();
+    $user->password = $password;
+    $user->email = $email;
+    $user->type = EMPLOYEE;
+    $ok= registerUser($user);
+    if($ok)
+    {
+        $url = '/views/employee/index.php';
+    }
+}
+else if($userType == 'project-manager')
+{
+    $user = new User();
+    $user->password = $password;
+    $user->email = $email;
+    $user->type = BOSS;
+    $ok = registerUser($user);
+    if($ok)
+    {
+        $url = '/views/boss/index.php';
+    }
+}
+else if($userType == 'client')
+{
+    $user = new Client();
+    $user->password = $password;
+    $user->email = $email;
+    $ok = registerClient($user);
+    if($ok)
+    {
+        $url = '/views/client/index.php';
+    }
+}
+
+
+if($ok)
+{
+    redirect($url, [$user]);
 }
 else
 {

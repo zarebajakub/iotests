@@ -6,12 +6,17 @@ require_once $doc_root.'/common.php';
 
 
 $email = $_POST['email'];
-$password = password_hash($_POST['pass'],  PASSWORD_DEFAULT);
+$password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
 
 $user = findUser($email, $password);
+
 if($user)
 {
+    session_start();
+    $_SESSION['User'] = $user;
+
     $userType = whoIsIt($user);
+
     if($userType == EMPLOYEE)
     {
         redirect('/views/employee/index.php', $user);
@@ -25,5 +30,5 @@ if($user)
         redirect('/views/client/index.php', $user);
     }
 }
-redirect('index.html');
+redirect('login.html');
 ?>

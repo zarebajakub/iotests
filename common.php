@@ -6,6 +6,7 @@ define('BOSS', EMPLOYEE + 1);
 
 function debug($data)
 {
+    echo "<pre>";
     if(is_array($data))
     {
         foreach($data as $el)
@@ -18,7 +19,7 @@ function debug($data)
     {
         print_r($data);
     }
-    echo "<br>";
+    echo "</pre>";
     die();
 }
 
@@ -37,11 +38,11 @@ function whoIsIt($user)
 {
     if(isset($user['uprawnienia']))
     {
-        if($user['uprawnienia'] == 'EMPLOYEE')
+        if($user['uprawnienia'] == EMPLOYEE)
         {
             return EMPLOYEE;
         }
-        else if($user['uprawnienia'] == 'BOSS')
+        else if($user['uprawnienia'] == BOSS)
         {
             return BOSS;
         }

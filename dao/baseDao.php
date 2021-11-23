@@ -68,12 +68,12 @@ function findUser($email, $passEncrypted)
 
 function registerUser(User $user)
 {
-    return query("INSERT INTO users(email, password) VALUES (".makeSafeForDb($user->email).", ".makeSafeForDb($user->password).")");
+    return query("INSERT INTO users(email, password, uprawnienia) VALUES (".makeSafeForDb($user->email).", ".makeSafeForDb($user->password).", $user->type)");
 }
 
 function registerClient(Client $client)
 {
-    return query("INSERT INTO users(email,password) VALUES (".$client->email.",".$client->password.")");   
+    return query("INSERT INTO users(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
 }
 
 function viewEmployes()
@@ -117,9 +117,9 @@ function viewTasksEmployee($userId)
 	return query("SELECT * FROM tasks WHERE user_id=$userId");
 }
 
-function viewTasksBoss($organisationId)
+function viewTasksBoss()
 {
-	return query("SELECT * FROM tasks WHERE organization_id=$organisationId");
+	return query("SELECT * FROM tasks");
 }
 
 

@@ -9,7 +9,7 @@
                 <li><a href="profile.php">Profil</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">                 
-                <li><a href="view-tasks.php">Zadania</a></li>
+                <li><a href="add-task.php">Dodaj zadanie</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>Pracownicy</li>

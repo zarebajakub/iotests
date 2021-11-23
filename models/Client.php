@@ -12,7 +12,7 @@ class Client implements baseModelInterface
     public $phoneNumber;
     public $companyName;
 
-    public function __construct($userMap)
+    public function __construct($userMap=[])
     {
         if(isset($userMap['organisationId'])) { $this->organisationId = $userMap['organisationId']; }
         if(isset($userMap['name'])) { $this->name = $userMap['name']; }

@@ -1,5 +1,7 @@
 <?php
 include('navbar.php');
+$doc_root = $_SERVER['DOCUMENT_ROOT'];
+require_once $doc_root.'/common.php';
 
-echo "To jest employee Index - tu sie mają pojawiać aktualne zadania pracownika"
+redirect('/views/employee/view-tasks.php');
 ?>
