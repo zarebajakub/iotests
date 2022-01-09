@@ -6,6 +6,8 @@ require_once $doc_root.'/common.php';
 
 addTask($_POST['project_id'], $_POST['user_id'], $_POST['desc']);
 
-redirect('views/boss/view-tasks.php');
+debug("tu ok");
+
+redirect('/views/boss/view-tasks.php');
 
 ?>
