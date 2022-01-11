@@ -30,5 +30,5 @@ if($user)
         redirect('/views/client/index.php', $user);
     }
 }
-redirect('login.html');
+redirect('login.php');
 ?>
