@@ -18,15 +18,15 @@ mysqli_select_db($link, $dbName) or die('MySQL: DBSelect Error');
 
 
 $SUB_FOLDER = "";
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$_SESSION['ROOT'] =  $_SERVER['DOCUMENT_ROOT'].$SUB_FOLDER;
 if($_SERVER['HTTP_HOST'] == 'student.agh.edu.pl')
 {
   $SUB_FOLDER = '/~jakubzar/test/';
+  $_SESSION['ROOT'] = "/home/eaiibgrp/jakubzar/public_html/test/";
 }
-
-if (session_status() == PHP_SESSION_NONE) 
-    {
-        session_start();
-    }
-    $_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'].$SUB_FOLDER;
-   
+    
 ?>
