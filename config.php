@@ -22,7 +22,7 @@ if (session_status() == PHP_SESSION_NONE)
 {
     session_start();
 }
-$_SESSION['ROOT'] =  $_SERVER['DOCUMENT_ROOT'].$SUB_FOLDER;
+$_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'];
 if($_SERVER['HTTP_HOST'] == 'student.agh.edu.pl')
 {
   $SUB_FOLDER = '/~jakubzar/test/';
