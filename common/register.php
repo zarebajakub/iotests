@@ -15,7 +15,7 @@ $repeat_password = $_POST['pass-repeat'];
 
 if($_POST['pass'] != $_POST['pass-repeat'])
 {
-    redirect('signup.html', ['Hasła powinny być takie same']);
+    redirect('signup.php', ['Hasła powinny być takie same']);
 }
 
 $password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
@@ -23,7 +23,7 @@ $password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
 $user = findUser($email, $password);
 if($user)
 {
-    redirect('signup.html', ['To konto już istnieje']);
+    redirect('signup.php', ['To konto już istnieje']);
 }
 
 // w tym momencie trzeba sprawdzic jakie konto to ma być - employee czy klient czy boss

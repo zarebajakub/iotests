@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 
 define('CLIENT', 1);
 define('EMPLOYEE', CLIENT + 1);
@@ -30,7 +31,8 @@ function redirect($url, $data=[])
         session_start();
     }
     $_SESSION['lastPageData'] = $data;
-    header("Location: http://$_SERVER[HTTP_HOST]/$url");
+    global $SUB_FOLDER;
+    header("Location: http://$_SERVER[HTTP_HOST]/$SUB_FOLDER/$url");
     exit();
 }
 
