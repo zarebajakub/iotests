@@ -10,10 +10,13 @@ require_once $doc_root.'/models/User.php';
 use models\Client;
 use models\User;
 
+echo "po use i requirach";
+
 
 $email = htmlentities($_POST['email']);
 $password = $_POST['pass'];
 $repeat_password = $_POST['pass-repeat'];
+echo "przed sprawdzaniem rownosci hasel";
 
 if($_POST['pass'] != $_POST['pass-repeat'])
 {
@@ -79,6 +82,8 @@ else
 {
     redirect('signup.php', ['Coś poszło nie tak z rejestracją']);
 }
+
+echo "koniec pliku zaden if sie nie spelnil"
 
 
 ?>
