@@ -75,7 +75,7 @@ if($ok)
 }
 else
 {
-    redirect('signup.html', ['Coś poszło nie tak z rejestracją']);
+    redirect('signup.php', ['Coś poszło nie tak z rejestracją']);
 }
 
 

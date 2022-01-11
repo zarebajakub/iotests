@@ -2,6 +2,7 @@
 require_once 'config.php';
 include('navbar.php');
 
+echo $_SERVER['HTTP_HOST'];
 ?>
 
 <div>

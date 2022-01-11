@@ -1,3 +1,6 @@
+<?php
+    require_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" action="common/login.php" method="post"> 
+            <form class="login100-form validate-form" action=<?=$SUB_FOLDER."common/login.php"?> method="post"> 
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
