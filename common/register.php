@@ -1,7 +1,14 @@
 <?php
 
-echo "wykonuje sie";
+echo "wykonuje sie <br>";
+
+if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
 $doc_root = $_SESSION['ROOT'];
+
+echo $doc_root;
 
 require_once $doc_root.'/dao/baseDao.php';
 require_once $doc_root.'/common.php';
