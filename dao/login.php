@@ -2,7 +2,7 @@
 
 //RACZEJ DO USUNIĘCIA
 
-$doc_root = $_SERVER['DOCUMENT_ROOT'];
+$doc_root = $$_SESSION['ROOT'];
 
 require_once $doc_root.'/config.php';
 require_once 'baseDao.php';
