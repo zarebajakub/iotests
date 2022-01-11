@@ -18,7 +18,7 @@ mysqli_select_db($link, $dbName) or die('MySQL: DBSelect Error');
 
 
 $SUB_FOLDER = "";
-if($_SERVER['DOCUMENT_ROOT'] == '/etc/httpd.extra/htdocs/')
+if($_SERVER['HTTP_HOST'] == 'student.agh.edu.pl')
 {
   $_SERVER['DOCUMENT_ROOT'] .= '~jakubzar/test/';
   $SUB_FOLDER = '/~jakubzar/test/';
