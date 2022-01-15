@@ -2,7 +2,7 @@
 
 namespace models;
 
-class Client implements baseModelInterface
+class Client
 {
     public $id;
     public $name;
@@ -23,14 +23,4 @@ class Client implements baseModelInterface
         if(isset($userMap['companyName'])) { $this->companyName = $userMap['companyName']; }
     }
 
-    public function validate()
-    {
-        $ok = true;
-
-        return $ok;
-    }
-    public function toMap()
-    {
-
-    }
 }

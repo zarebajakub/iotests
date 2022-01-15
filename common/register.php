@@ -72,7 +72,7 @@ else if($userType == 'client')
     $ok = registerClient($user);
     if($ok)
     {
-        $url = '/views/client/index.php';
+        $url = '/views/client/client-page/index.html';
     }
 }
 

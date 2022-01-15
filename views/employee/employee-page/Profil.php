@@ -1,15 +1,23 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Edytuj profil">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Wykonawcy</title>
+    <title>Profil</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="Wykonawcy.css" media="screen">
+    <link rel="stylesheet" href="Profil.css" media="screen">
     <link rel="icon" href="images/Untitled.png">
+
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
@@ -20,11 +28,12 @@
     <script type="application/ld+json">{
         "@context": "http://schema.org",
         "@type": "Organization",
-        "name": "",
+        "name": "Boss Page ",
         "logo": "images/Untitled.png"
     }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Wykonawcy">
+    <meta property="og:title" content="Profil">
+    <meta property="og:description" content="">
     <meta property="og:type" content="website">
 </head>
 <body class="u-body">
@@ -59,15 +68,11 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.html" style="padding: 10px 20px;">Profil</a>
+                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
+                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                 </ul>
             </div>
@@ -79,14 +84,11 @@
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
+                                                      style="padding: 10px 20px;">Projekty</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html"
-                                                      style="padding: 10px 20px;">Moje zlecenia</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html"
-                                                      style="padding: 10px 20px;">Wykonawcy</a>
                             </li>
                         </ul>
                     </div>
@@ -96,30 +98,20 @@
         </nav>
     </div>
 </header>
-<section class="u-clearfix u-section-1" id="sec-6385">
+<section class="u-clearfix u-section-1" id="sec-d3ab">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-align-left u-text u-text-default u-text-1">Wykonawcy</h3>
-        <div class="u-align-left u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
+        <h3 class="u-text u-text-default u-text-1">Mój profil</h3>
+        <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-container-layout-1">
-                <div class="u-expanded-width u-list u-list-1">
-                    <div class="u-repeater u-repeater-1">
-                        <div class="u-container-style u-list-item u-repeater-item">
-                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
-                                <h4 class="u-align-center u-text u-text-default u-text-2">Firma 1</h4>
-                            </div>
-                        </div>
-                        <div class="u-container-style u-list-item u-repeater-item">
-                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
-                                <h4 class="u-align-center u-text u-text-default u-text-3">Firma 2&nbsp;</h4>
-                            </div>
-                        </div>
-                        <div class="u-container-style u-list-item u-repeater-item">
-                            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
-                                <h4 class="u-align-center u-text u-text-default u-text-4">Firma 3</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="u-text u-text-default u-text-2">Imię&nbsp;</h3>
+                <h5 class="u-text u-text-default u-text-3"><?= $_SESSION['User']['name']?></h5>
+                <h3 class="u-text u-text-default u-text-4">Nazwisko</h3>
+                <h5 class="u-text u-text-default u-text-5"><?= $_SESSION['User']['surname']?></h5>
+                <h3 class="u-text u-text-default u-text-6">Email</h3>
+                <h5 class="u-text u-text-default u-text-7"><?= $_SESSION['User']['email']?></h5>
+                <a href="#https://nicepage.review"
+                   class="u-border-2 u-border-black u-btn u-button-style u-dialog-link u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Edytuj
+                    profil</a>
             </div>
         </div>
     </div>
@@ -131,16 +123,5 @@
         <p class="u-small-text u-text u-text-variant u-text-1">Get organised with us.</p>
     </div>
 </footer>
-<section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
-    </p>
-    <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-    </a>.
-</section>
 </body>
 </html>

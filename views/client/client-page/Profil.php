@@ -1,3 +1,10 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -44,7 +51,7 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Profil.html" style="padding: 10px 20px;">Profil</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Profil.php" style="padding: 10px 20px;">Profil</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
 </li></ul>
@@ -54,7 +61,7 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.html" style="padding: 10px 20px;">Profil</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php" style="padding: 10px 20px;">Profil</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
 </li></ul>
@@ -70,11 +77,11 @@
         <div class="u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h3 class="u-text u-text-default u-text-2">Imię&nbsp;</h3>
-            <h5 class="u-text u-text-3">Imię</h5>
+            <h5 class="u-text u-text-3"><?= $_SESSION['User']['name']?></h5>
             <h3 class="u-text u-text-default u-text-4">Nazwisko</h3>
-            <h5 class="u-text u-text-default u-text-5">Nazwisko</h5>
+            <h5 class="u-text u-text-default u-text-5"><?= $_SESSION['User']['surname']?></h5>
             <h3 class="u-text u-text-default u-text-6">Email</h3>
-            <h5 class="u-text u-text-default u-text-7">Email</h5>
+            <h5 class="u-text u-text-default u-text-7"><?= $_SESSION['User']['email']?></h5>
             <a href="#sec-66ea" class="u-border-2 u-border-black u-btn u-button-style u-dialog-link u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Edytuj profil</a>
           </div>
         </div>

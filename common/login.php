@@ -31,7 +31,7 @@ if($user)
     }
     else if($userType == CLIENT)
     {
-        redirect('/views/client/index.php', $user);
+        redirect('/views/client/client-page/index.html', $user);
     }
 }
 redirect('login.php');
