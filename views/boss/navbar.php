@@ -11,8 +11,11 @@
             <ul class="nav navbar-nav navbar-right">                 
                 <li><a href="add-task.php">Dodaj zadanie</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>Pracownicy</li>
+            <ul class="nav navbar-nav navbar-right">                 
+                <li><a href="add-task.php">Pracownicy</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">                 
+                <li><a href="boss-page/main-page.html">Home</a></li>
             </ul>
         </div>
     </div>
