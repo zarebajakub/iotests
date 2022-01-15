@@ -27,7 +27,7 @@ if($user)
     }
     else if($userType == BOSS)
     {
-        redirect('/views/boss/index.php', $user);
+        redirect('/views/boss/boos-page/index.html', $user);
     }
     else if($userType == CLIENT)
     {

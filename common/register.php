@@ -61,7 +61,7 @@ else if($userType == 'project-manager')
     $ok = registerUser($user);
     if($ok)
     {
-        $url = '/views/boss/index.php';
+        $url = '/views/boss/boss-page/index.html';
     }
 }
 else if($userType == 'client')
