@@ -127,4 +127,12 @@ function getTasksBoss()
 	return query("SELECT * FROM tasks");
 }
 
+function addProjectForOrganisation($orgId, $clientId, $desc)
+{
+    $orgId = makeSafeForDb($orgId);
+    $clientId = makeSafeForDb($clientId);
+    $desc = makeSafeForDb($desc);
+    return query("INSERT INTO projects VALUES ($orgId, $clientId, $desc)");
+}
+
 
