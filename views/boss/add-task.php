@@ -1,5 +1,9 @@
 <?php
-$doc_root = $_SERVER['DOCUMENT_ROOT'];
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
 
 require_once $doc_root.'/dao/baseDao.php';
 
