@@ -117,12 +117,12 @@ function editTask(Task $task)
 	return query("UPDATE task SET description=$task->description WHERE task_id=$task->id");
 }
 
-function viewTasksEmployee($userId)
+function getTasksEmployee($userId)
 {
-	return query("SELECT * FROM tasks WHERE user_id=$userId");
+	return query("SELECT * FROM tasks WHERE user_id=".makeSafeForDb($userId));
 }
 
-function viewTasksBoss()
+function getTasksBoss()
 {
 	return query("SELECT * FROM tasks");
 }

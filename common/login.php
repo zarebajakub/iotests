@@ -23,11 +23,11 @@ if($user)
 
     if($userType == EMPLOYEE)
     {
-        redirect('/views/employee/index.php', $user);
+        redirect('/views/employee/employee-page/index.html', $user);
     }
     else if($userType == BOSS)
     {
-        redirect('/views/boss/boos-page/index.html', $user);
+        redirect('/views/boss/boss-page/index.html', $user);
     }
     else if($userType == CLIENT)
     {
