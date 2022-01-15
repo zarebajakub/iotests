@@ -78,7 +78,12 @@ function registerClient(Client $client)
 
 function viewEmployes()
 {
-	return query("SELECT * FROM users");	
+	return query("SELECT * FROM users WHERE uprawnienia = ".EMPLOYEE);	
+}
+
+function getEmployesOfOrganisation($organisationId)
+{
+	return query("SELECT * FROM users WHERE uprawnienia = ".EMPLOYEE." AND organization_id = ".makeSafeForDb($organisationId));	
 }
 
 function addTask($project_id,$user_id, $desc)
