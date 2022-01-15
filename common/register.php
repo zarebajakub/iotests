@@ -12,6 +12,7 @@ echo $doc_root;
 require_once $doc_root.'/dao/baseDao.php';
 require_once $doc_root.'/common.php';
 require_once $doc_root.'/models/User.php';
+require_once $doc_root.'/models/Client.php';
 
 use models\Client;
 use models\User;
