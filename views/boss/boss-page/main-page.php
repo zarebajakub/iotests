@@ -71,7 +71,7 @@ $doc_root = $_SESSION['ROOT'];
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.html" style="padding: 10px 20px;">Projekty</a>
+                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -90,7 +90,7 @@ $doc_root = $_SESSION['ROOT'];
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pracownicy.html"

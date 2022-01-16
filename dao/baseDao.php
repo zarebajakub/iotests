@@ -131,9 +131,27 @@ function addProjectForOrganisation($orgId, $clientId, $desc)
     return query("INSERT INTO projects(organization_id, c_id, description) VALUES ($orgId, $clientId, $desc)");
 }
 
+function addOrganisation($owner, $name)
+{
+	$owner = makeSafeForDb($owner);
+    $name = makeSafeForDb($name);
+    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
+}
+
 function getOrganisations()
 {
 	return query("SELECT * FROM organizations");
 }
+
+function getProjects($orgId)
+{
+	return query("SELECT * FROM projects WHERE organization_id = $orgId");
+}
+
+function getTasksOfProject($projectId)
+{
+    return query("SELECT * FROM tasks WHERE projects_id = $projectId");
+}
+
 
 

@@ -117,7 +117,8 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
         <?php
             if(isset($_SESSION['lastPageData'][0]))
             {
-                echo '<h1 class="u-align-left u-text u-text-default u-text-1">'.$_SESSION['lastPageData'][0].'</h1>';
+                print_r($_SESSION['lastPageData'][0]);
+                //echo '<h1 class="u-align-left u-text u-text-default u-text-1">'.$_SESSION['lastPageData'][0].'</h1>';
             }
         ?>
         <h2 class="u-align-left u-text u-text-default u-text-1">Dodaj zadanie&nbsp;</h2>

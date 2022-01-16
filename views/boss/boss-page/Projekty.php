@@ -1,3 +1,24 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$projects = getProjects($_SESSION['User']['organization_id']);
+if(!isset($projects[0]) && is_array($projects) && !empty($projects))
+{
+    $projects = [$projects];
+}
+
+foreach($projects as $project)
+{
+    $project['tasks'] = getTasksOfProject($project['project_id']);
+    $project['tasks'] = [$project['tasks']];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -65,7 +86,7 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.html" style="padding: 10px 20px;">Projekty</a>
+                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -84,7 +105,7 @@
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pracownicy.html"
@@ -100,58 +121,37 @@
 </header>
 <section class="u-align-left u-clearfix u-section-1" id="sec-2332">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-default u-text-1">Projekt X</h3>
-        <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
-            <div class="u-container-layout u-container-layout-1">
-                <div class="u-align-center u-clearfix u-gutter-16 u-layout-wrap u-layout-wrap-1">
-                    <div class="u-layout">
-                        <div class="u-layout-row">
-                            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                                <div class="u-container-layout u-valign-top u-container-layout-2">
-                                    <h5 class="u-text u-text-default u-text-2">Nazwa zadania&nbsp;</h5>
-                                    <h6 class="u-text u-text-3">Opis zadania&nbsp;</h6>
+
+        <?php foreach($projects as $project) { ?>
+
+            <h3 class="u-text u-text-default u-text-1"><?= $project['name'] ?></h3>
+            <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
+                <div class="u-container-layout u-container-layout-1">
+                    <div class="u-align-center u-clearfix u-gutter-16 u-layout-wrap u-layout-wrap-1">
+                        <div class="u-layout">
+                            <?php foreach($project['tasks'] as $task) { ?>
+                                <div class="u-layout-row">
+                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                        <div class="u-container-layout u-valign-top u-container-layout-2">
+                                            <h5 class="u-text u-text-default u-text-2"><?= $task['task_id'] ?>&nbsp;</h5>
+                                            <h6 class="u-text u-text-3"><?= $project['description'] ?>&nbsp;</h6>
+                                        </div>
+                                    </div>
+                                    <div class="u-align-center u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                        <div class="u-container-layout u-valign-middle u-container-layout-3">
+                                            <a href="#sec-dfb8"
+                                            class="u-align-right u-border-1 u-border-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Edytuj
+                                                zadanie&nbsp;</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="u-align-center u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                                <div class="u-container-layout u-valign-middle u-container-layout-3">
-                                    <a href="#sec-dfb8"
-                                       class="u-align-right u-border-1 u-border-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Edytuj
-                                        zadanie&nbsp;</a>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<section class="u-align-left u-clearfix u-section-2" id="carousel_0c50">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-default u-text-1">Projekt Y</h3>
-        <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
-            <div class="u-container-layout u-container-layout-1">
-                <div class="u-align-center u-clearfix u-gutter-16 u-layout-wrap u-layout-wrap-1">
-                    <div class="u-layout">
-                        <div class="u-layout-row">
-                            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                                <div class="u-container-layout u-valign-top u-container-layout-2">
-                                    <h5 class="u-text u-text-default u-text-2">Nazwa zadania&nbsp;</h5>
-                                    <h6 class="u-text u-text-3">Opis zadania&nbsp;</h6>
-                                </div>
-                            </div>
-                            <div class="u-align-center u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                                <div class="u-container-layout u-valign-middle u-container-layout-3">
-                                    <a href="#sec-dfb8"
-                                       class="u-align-right u-border-1 u-border-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Edytuj
-                                        zadanie&nbsp;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <?php } ?>
     </div>
 </section>
 
