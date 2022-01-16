@@ -1,5 +1,9 @@
 <?php
     require_once 'config.php';
+    if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +44,14 @@
 					Sign up<br>
 										<br>
                     </span>
+
+                <span><?php
+                    if(isset($_SESSION['lastPageData'][0]))
+                    {
+                        echo $_SESSION['lastPageData'][0];
+                    }
+                    ?>
+                </span>
 
                 <div class="select-div ">
                     <label class="select-label p-b-20">Choose your role:</label>

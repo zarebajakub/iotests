@@ -1,3 +1,18 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$organisations = getOrganisations();
+if(!isset($organisations[0]) && is_array($organisations) && !empty($organisations))
+{
+    $organisations = [$organisations];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -8,8 +23,9 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona Główna</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="Strona-Główna.css" media="screen">
+    <link rel="stylesheet" href="main-page.css" media="screen">
     <link rel="icon" href="images/Untitled.png">
+
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
@@ -27,7 +43,7 @@
     <meta property="og:title" content="Strona Główna">
     <meta property="og:type" content="website">
 </head>
-<body data-home-page="Strona-Główna.html" data-home-page-title="Strona Główna" class="u-body">
+<body class="u-body">
 <header class="u-clearfix u-header u-header" id="sec-9336">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
@@ -55,11 +71,11 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Strona-Główna.html" style="padding: 10px 20px;">Strona Główna</a>
+                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.html" style="padding: 10px 20px;">Profil</a>
+                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -76,10 +92,10 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Strona-Główna.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html"
@@ -98,20 +114,31 @@
 </header>
 <section class="u-align-center u-clearfix u-section-1" id="sec-51f3">
     <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <?php
+            if(isset($_SESSION['lastPageData'][0]))
+            {
+                print_r($_SESSION['lastPageData'][0]);
+                //echo '<h1 class="u-align-left u-text u-text-default u-text-1">'.$_SESSION['lastPageData'][0].'</h1>';
+            }
+        ?>
         <h2 class="u-align-left u-text u-text-default u-text-1">Dodaj zadanie&nbsp;</h2>
         <div class="u-align-center u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
                 <div class="u-form u-palette-5-light-2 u-radius-10 u-form-1">
-                    <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+                    <form action="<?=$SUB_FOLDER?>/controllers/action-add-project.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
                           source="custom" name="form" style="padding: 10px;">
                         <div class="u-form-group u-form-select u-form-group-1">
                             <label for="select-0a65" class="u-label">Wybierz firmę</label>
                             <div class="u-form-select-wrapper">
-                                <select id="select-0a65" name="select"
+                                <select id="select-0a65" name="organisation-id"
                                         class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
-                                    <option value="Firma 1">Firma 1</option>
-                                    <option value="Firma 2">Firma 2</option>
-                                    <option value="Firma 3">Firma 3</option>
+                                    <?php 
+                                        foreach($organisations as $org)
+                                        {
+                                            ?>
+                                            <option value="<?= $org['organization_id'] ?>"><?= $org['name'] ?></option>
+                                    <?php } ?>
+                                    
                                 </select>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"
                                      class="u-caret">
@@ -121,7 +148,7 @@
                         </div>
                         <div class="u-form-group u-form-name">
                             <label for="name-39a1" class="u-label">Opis zadania </label>
-                            <input type="text" placeholder="Opis " id="name-39a1" name="name"
+                            <input type="text" placeholder="Opis " id="description-project" name="name"
                                    class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white"
                                    required="">
                         </div>
@@ -196,16 +223,5 @@
         <p class="u-small-text u-text u-text-variant u-text-1">Get organised with us.</p>
     </div>
 </footer>
-<section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/website-mockup" target="_blank">
-        <span>Website Mockup</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
-    </p>
-    <a class="u-link" href="https://nicepage.me" target="_blank">
-        <span>Website Builder</span>
-    </a>.
-</section>
 </body>
 </html>

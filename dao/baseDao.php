@@ -47,11 +47,6 @@ function query($query)
     }
 }
 
-function test()
-{
-    return query("SELECT * FROM tabela");
-}
-
 function findUser($email, $passEncrypted)
 {
     $email = makeSafeForDb($email);
@@ -73,7 +68,7 @@ function registerUser(User $user)
 
 function registerClient(Client $client)
 {
-    return query("INSERT INTO users(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
+    return query("INSERT INTO clients(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
 }
 
 function viewEmployes()
@@ -88,7 +83,8 @@ function getEmployesOfOrganisation($organisationId)
 
 function addTask($project_id,$user_id, $desc)
 {
-	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,".makeSafeForDb($desc).")");
+    $desc = makeSafeForDb($desc);
+	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,$desc)");
 }
 
 function deleteTask($project_id,$user_id)
@@ -117,14 +113,45 @@ function editTask(Task $task)
 	return query("UPDATE task SET description=$task->description WHERE task_id=$task->id");
 }
 
-function viewTasksEmployee($userId)
+function getTasksEmployee($userId)
 {
-	return query("SELECT * FROM tasks WHERE user_id=$userId");
+	return query("SELECT * FROM tasks WHERE user_id=".makeSafeForDb($userId));
 }
 
-function viewTasksBoss()
+function getTasksBoss()
 {
 	return query("SELECT * FROM tasks");
 }
+
+function addProjectForOrganisation($orgId, $clientId, $desc)
+{
+    $orgId = makeSafeForDb($orgId);
+    $clientId = makeSafeForDb($clientId);
+    $desc = makeSafeForDb($desc);
+    return query("INSERT INTO projects(organization_id, c_id, description) VALUES ($orgId, $clientId, $desc)");
+}
+
+function addOrganisation($owner, $name)
+{
+	$owner = makeSafeForDb($owner);
+    $name = makeSafeForDb($name);
+    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
+}
+
+function getOrganisations()
+{
+	return query("SELECT * FROM organizations");
+}
+
+function getProjects($orgId)
+{
+	return query("SELECT * FROM projects WHERE organization_id = $orgId");
+}
+
+function getTasksOfProject($projectId)
+{
+    return query("SELECT * FROM tasks WHERE projects_id = $projectId");
+}
+
 
 

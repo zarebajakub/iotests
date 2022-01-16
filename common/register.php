@@ -1,6 +1,5 @@
 <?php
 
-echo "wykonuje sie <br>";
 
 if (session_status() == PHP_SESSION_NONE) 
 {
@@ -13,17 +12,15 @@ echo $doc_root;
 require_once $doc_root.'/dao/baseDao.php';
 require_once $doc_root.'/common.php';
 require_once $doc_root.'/models/User.php';
+require_once $doc_root.'/models/Client.php';
 
 use models\Client;
 use models\User;
 
-echo "po use i requirach";
-
-
 $email = htmlentities($_POST['email']);
 $password = $_POST['pass'];
 $repeat_password = $_POST['pass-repeat'];
-echo "przed sprawdzaniem rownosci hasel";
+
 
 if($_POST['pass'] != $_POST['pass-repeat'])
 {
@@ -65,7 +62,7 @@ else if($userType == 'project-manager')
     $ok = registerUser($user);
     if($ok)
     {
-        $url = '/views/boss/index.php';
+        $url = '/views/boss/boss-page/index.html';
     }
 }
 else if($userType == 'client')
@@ -76,21 +73,19 @@ else if($userType == 'client')
     $ok = registerClient($user);
     if($ok)
     {
-        $url = '/views/client/index.php';
+        $url = '/views/client/client-page/index.html';
     }
 }
 
 
 if($ok)
 {
-    redirect($url, [$user]);
+    redirect($url);
 }
 else
 {
     redirect('signup.php', ['Coś poszło nie tak z rejestracją']);
 }
-
-echo "koniec pliku zaden if sie nie spelnil"
 
 
 ?>

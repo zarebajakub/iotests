@@ -1,3 +1,10 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -57,15 +64,15 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Strona-Główna.html" style="padding: 10px 20px;">Strona Główna</a>
+                            href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.html" style="padding: 10px 20px;">Projekty</a>
+                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.html" style="padding: 10px 20px;">Profil</a>
+                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                 </ul>
             </div>
@@ -74,13 +81,13 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Strona-Główna.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
                         </ul>
@@ -97,11 +104,11 @@
         <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-container-layout-1">
                 <h3 class="u-text u-text-default u-text-2">Imię&nbsp;</h3>
-                <h5 class="u-text u-text-default u-text-3">Imię</h5>
+                <h5 class="u-text u-text-default u-text-3"><?= $_SESSION['User']['name']?></h5>
                 <h3 class="u-text u-text-default u-text-4">Nazwisko</h3>
-                <h5 class="u-text u-text-default u-text-5">Nazwisko</h5>
+                <h5 class="u-text u-text-default u-text-5"><?= $_SESSION['User']['surname']?></h5>
                 <h3 class="u-text u-text-default u-text-6">Email</h3>
-                <h5 class="u-text u-text-default u-text-7">Email</h5>
+                <h5 class="u-text u-text-default u-text-7"><?= $_SESSION['User']['email']?></h5>
                 <a href="#https://nicepage.review"
                    class="u-border-2 u-border-black u-btn u-button-style u-dialog-link u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Edytuj
                     profil</a>

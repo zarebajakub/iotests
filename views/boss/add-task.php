@@ -1,6 +1,9 @@
 <?php
-include('navbar.php');
-$doc_root = $_SERVER['DOCUMENT_ROOT'];
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
 
 require_once $doc_root.'/dao/baseDao.php';
 
@@ -12,41 +15,43 @@ if(!isset($employees[0]) && is_array($employees) && !empty($employees))
 //print_r($employees);
 //print_r($doc_root);
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login V18</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?=$doc_root?>images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.ico"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root?>vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."fonts/font-awesome-4.7.0/css/font-awesome.min.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."fonts/Linearicons-Free-v1.0.0/icon-font.min.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."vendor/animate/animate.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."vendor/css-hamburgers/hamburgers.min.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."vendor/animsition/css/animsition.min.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."vendor/select2/select2.min.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."vendor/daterangepicker/daterangepicker.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."css/util.css"?>">
-    <link rel="stylesheet" type="text/css" href="<?=$doc_root."css/main.css"?>">
+    <link rel="stylesheet" type="text/css" href="../../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <!--===============================================================================================-->
 </head>
 <body style="background-color: whitesmoke;">
+<?php include('navbar.php'); ?>
 <div class="limiter">
 
 
     <div class="container">
         <div class="addTask">
-            <form class="login100-form validate-form" action="/controllers/action-add-employee.php" method="post">
+            <form class="login100-form validate-form" action="<?=$SUB_FOLDER?>/controllers/action-add-task.php" method="post">
                 <div class="BoxCenter">
                     <div class="labelBox">
                         <label class="bigLabel">Add task</label>
@@ -93,6 +98,11 @@ if(!isset($employees[0]) && is_array($employees) && !empty($employees))
                         </div>
                     </div>
 
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Dodaj
+                        </button>
+                    </div>
 
                 </div>
             </form>
@@ -260,21 +270,21 @@ if(!isset($employees[0]) && is_array($employees) && !empty($employees))
 
 
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/animsition/js/animsition.min.js"></script>
+<script src="../../vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/bootstrap/js/popper.js"></script>
-<script src="<?$doc_root?>vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/bootstrap/js/popper.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/select2/select2.min.js"></script>
+<script src="<../../vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/daterangepicker/moment.min.js"></script>
-<script src="<?$doc_root?>vendor/daterangepicker/daterangepicker.js"></script>
+<script src="../../vendor/daterangepicker/moment.min.js"></script>
+<script src="../../vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>vendor/countdowntime/countdowntime.js"></script>
+<script src="../../vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="<?$doc_root?>js/main.js"></script>
+<script src="../../js/main.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,18 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$tasks = getTasksEmployee($_SESSION['User']['user_id']);
+if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
+{
+    $tasks = [$tasks];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -57,15 +72,15 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Strona-Główna.html" style="padding: 10px 20px;">Strona Główna</a>
+                            href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.html" style="padding: 10px 20px;">Projekty</a>
+                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.html" style="padding: 10px 20px;">Profil</a>
+                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                 </ul>
             </div>
@@ -74,13 +89,13 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Strona-Główna.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
                         </ul>
@@ -110,10 +125,15 @@
                 <div class="u-align-left u-container-style u-tab-active u-tab-pane" id="tab-081f" role="tabpanel"
                      aria-labelledby="link-tab-081f">
                     <div class="u-container-layout u-container-layout-1">
-                        <h5 class="u-text u-text-default u-text-2">Nazwa zadania&nbsp;</h5>
-                        <h6 class="u-text u-text-3">Opis zadania&nbsp;</h6>
-                        <h5 class="u-text u-text-default u-text-4">Nazwa zadania&nbsp;</h5>
-                        <h6 class="u-text u-text-5">Opis zadania&nbsp;</h6>
+                        <?php 
+                        foreach($tasks as $task)
+                        {
+                            ?>
+                           <h5 class="u-text u-text-default u-text-2">Nazwa zadania: <?= $task['task_id'] ?>&nbsp;</h5>
+                           <h5 class="u-text u-text-3">Opis zadania: &nbsp;</h5>
+                           <h6 class="u-text u-text-3"><?= $task['description'] ?> &nbsp;</h6>
+                        <?php } ?>
+                        
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-tab-pane" id="link-tab-6219" role="tabpanel"
