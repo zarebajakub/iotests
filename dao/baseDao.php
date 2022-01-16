@@ -47,11 +47,6 @@ function query($query)
     }
 }
 
-function test()
-{
-    return query("SELECT * FROM tabela");
-}
-
 function findUser($email, $passEncrypted)
 {
     $email = makeSafeForDb($email);
@@ -88,7 +83,8 @@ function getEmployesOfOrganisation($organisationId)
 
 function addTask($project_id,$user_id, $desc)
 {
-	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,".makeSafeForDb($desc).")");
+    $desc = makeSafeForDb($desc);
+	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,$desc)");
 }
 
 function deleteTask($project_id,$user_id)

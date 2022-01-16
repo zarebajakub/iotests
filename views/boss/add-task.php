@@ -51,7 +51,7 @@ if(!isset($employees[0]) && is_array($employees) && !empty($employees))
 
     <div class="container">
         <div class="addTask">
-            <form class="login100-form validate-form" action="<?=$SUB_FOLDER?>/controllers/action-add-employee.php" method="post">
+            <form class="login100-form validate-form" action="<?=$SUB_FOLDER?>/controllers/action-add-task.php" method="post">
                 <div class="BoxCenter">
                     <div class="labelBox">
                         <label class="bigLabel">Add task</label>
