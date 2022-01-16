@@ -68,7 +68,7 @@ function registerUser(User $user)
 
 function registerClient(Client $client)
 {
-    return query("INSERT INTO users(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
+    return query("INSERT INTO clients(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
 }
 
 function viewEmployes()
@@ -128,7 +128,12 @@ function addProjectForOrganisation($orgId, $clientId, $desc)
     $orgId = makeSafeForDb($orgId);
     $clientId = makeSafeForDb($clientId);
     $desc = makeSafeForDb($desc);
-    return query("INSERT INTO projects VALUES ($orgId, $clientId, $desc)");
+    return query("INSERT INTO projects(organization_id, c_id, description) VALUES ($orgId, $clientId, $desc)");
+}
+
+function getOrganisations()
+{
+	return query("SELECT * FROM organizations");
 }
 
 

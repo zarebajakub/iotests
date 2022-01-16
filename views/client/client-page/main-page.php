@@ -1,3 +1,18 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$organisations = getOrganisations();
+if(!isset($organisations[0]) && is_array($organisations) && !empty($organisations))
+{
+    $organisations = [$organisations];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -56,7 +71,7 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
+                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -77,7 +92,7 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
@@ -99,20 +114,30 @@
 </header>
 <section class="u-align-center u-clearfix u-section-1" id="sec-51f3">
     <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <?php
+            if(isset($_SESSION['lastPageData'][0]))
+            {
+                echo '<h1 class="u-align-left u-text u-text-default u-text-1">'.$_SESSION['lastPageData'][0].'</h1>';
+            }
+        ?>
         <h2 class="u-align-left u-text u-text-default u-text-1">Dodaj zadanie&nbsp;</h2>
         <div class="u-align-center u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
                 <div class="u-form u-palette-5-light-2 u-radius-10 u-form-1">
-                    <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+                    <form action="<?=$SUB_FOLDER?>/controllers/action-add-project.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
                           source="custom" name="form" style="padding: 10px;">
                         <div class="u-form-group u-form-select u-form-group-1">
                             <label for="select-0a65" class="u-label">Wybierz firmę</label>
                             <div class="u-form-select-wrapper">
-                                <select id="select-0a65" name="select"
+                                <select id="select-0a65" name="organisation-id"
                                         class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
-                                    <option value="Firma 1">Firma 1</option>
-                                    <option value="Firma 2">Firma 2</option>
-                                    <option value="Firma 3">Firma 3</option>
+                                    <?php 
+                                        foreach($organisations as $org)
+                                        {
+                                            ?>
+                                            <option value="<?= $org['organization_id'] ?>"><?= $org['name'] ?></option>
+                                    <?php } ?>
+                                    
                                 </select>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"
                                      class="u-caret">
@@ -122,7 +147,7 @@
                         </div>
                         <div class="u-form-group u-form-name">
                             <label for="name-39a1" class="u-label">Opis zadania </label>
-                            <input type="text" placeholder="Opis " id="name-39a1" name="name"
+                            <input type="text" placeholder="Opis " id="description-project" name="name"
                                    class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white"
                                    required="">
                         </div>

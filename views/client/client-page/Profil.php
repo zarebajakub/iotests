@@ -50,7 +50,7 @@ $doc_root = $_SESSION['ROOT'];
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Profil.php" style="padding: 10px 20px;">Profil</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
@@ -60,7 +60,7 @@ $doc_root = $_SESSION['ROOT'];
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php" style="padding: 10px 20px;">Profil</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
