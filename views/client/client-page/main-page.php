@@ -79,7 +79,7 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
+                            href="Moje-zlecenia.php" style="padding: 10px 20px;">Moje zlecenia</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -98,7 +98,7 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.php"
                                                       style="padding: 10px 20px;">Moje zlecenia</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html"

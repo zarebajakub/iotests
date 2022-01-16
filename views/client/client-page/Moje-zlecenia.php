@@ -1,3 +1,18 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$tasks = getProjectsOfClient($_SESSION['User']['clients_id']);
+if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
+{
+    $tasks = [$tasks];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -64,7 +79,7 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Moje-zlecenia.html" style="padding: 10px 20px;">Moje zlecenia</a>
+                            href="Moje-zlecenia.php" style="padding: 10px 20px;">Moje zlecenia</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -83,7 +98,7 @@
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.php"
                                                       style="padding: 10px 20px;">Moje zlecenia</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html"
@@ -105,38 +120,26 @@
                 <div class="u-align-left u-clearfix u-gutter-30 u-layout-wrap u-layout-wrap-1">
                     <div class="u-layout">
                         <div class="u-layout-col">
-                            <div class="u-size-30">
-                                <div class="u-layout-row">
-                                    <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                                        <div class="u-container-layout u-container-layout-2">
-                                            <h3 class="u-text u-text-default u-text-2">Przykładowy Nagłówek</h3>
+
+                            <?php foreach($tasks as $task) { ?>
+                                <div class="u-size-30">
+                                    <div class="u-layout-row">
+                                        <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                            <div class="u-container-layout u-container-layout-2">
+                                                <h5 class="u-text u-text-default u-text-2">Zadanie dodane dnia: <?= $task['created_at'] ?></h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                                        <div class="u-container-layout u-valign-middle u-container-layout-3">
-                                            <a href="https://nicepage.studio"
-                                               class="u-align-right u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Stan
-                                                zadani</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="u-size-30">
-                                <div class="u-layout-row">
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
-                                        <div class="u-container-layout u-container-layout-4">
-                                            <h3 class="u-text u-text-default u-text-3">Przykładowy Nagłówek</h3>
-                                        </div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
-                                        <div class="u-container-layout u-valign-middle u-container-layout-5">
-                                            <a href="https://nicepage.com/c/food-restaurant-website-templates"
-                                               class="u-align-right u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">Stan
-                                                zadania</a>
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                            <div class="u-container-layout u-valign-middle u-container-layout-3">
+                                                Opis: <br>
+                                                <?= $task['description'] ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
+                            <?php } ?>
+
                         </div>
                     </div>
                 </div>

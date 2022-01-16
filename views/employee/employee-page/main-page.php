@@ -1,3 +1,18 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$tasks = getTasksEmployee($_SESSION['User']['user_id']);
+if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
+{
+    $tasks = [$tasks];
+}
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -56,7 +71,7 @@
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="main-page.html" style="padding: 10px 20px;">Strona Główna</a>
+                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -73,7 +88,7 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
@@ -113,50 +128,31 @@
         <h2 class="u-text u-text-default u-text-1">Ostatnio dodane zadania&nbsp;</h2>
         <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-container-layout-1">
-                <div class="u-align-left u-clearfix u-expanded-width u-gutter-26 u-layout-wrap u-layout-wrap-1">
-                    <div class="u-layout">
-                        <div class="u-layout-col">
-                            <div class="u-size-60">
-                                <div class="u-layout-row">
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                                        <div class="u-container-layout u-container-layout-2">
-                                            <h3 class="u-text u-text-default u-text-2">Zadanie do zrobienia&nbsp;</h3>
+
+                <?php foreach($tasks as $task) { ?>
+                    <div class="u-align-left u-clearfix u-expanded-width u-gutter-26 u-layout-wrap u-layout-wrap-1">
+                        <div class="u-layout">
+                            <div class="u-layout-col">
+                                <div class="u-size-60">
+                                    <div class="u-layout-row">
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                            <div class="u-container-layout u-container-layout-2">
+                                                <h3 class="u-text u-text-default u-text-2">Zadanie do zrobienia&nbsp;</h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                                        <div class="u-container-layout u-valign-middle u-container-layout-3">
-                                            <a href="https://nicepage.me"
-                                               class="u-align-left u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Oznacz
-                                                jako wykonane</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="u-align-left u-clearfix u-expanded-width u-gutter-26 u-layout-wrap u-layout-wrap-2">
-                    <div class="u-layout">
-                        <div class="u-layout-col">
-                            <div class="u-size-60">
-                                <div class="u-layout-row">
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
-                                        <div class="u-container-layout u-container-layout-4">
-                                            <h3 class="u-text u-text-default u-text-3">Zadanie do zrobienia&nbsp;</h3>
-                                        </div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
-                                        <div class="u-container-layout u-valign-middle u-container-layout-5">
-                                            <a href="https://nicepage.me"
-                                               class="u-align-left u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-2">Oznacz
-                                                jako wykonane</a>
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                            <div class="u-container-layout u-valign-middle u-container-layout-3">
+                                                <a href="https://nicepage.me"
+                                                class="u-align-left u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Oznacz
+                                                    jako wykonane</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

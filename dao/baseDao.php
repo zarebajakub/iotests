@@ -115,7 +115,7 @@ function editTask(Task $task)
 
 function getTasksEmployee($userId)
 {
-	return query("SELECT * FROM tasks WHERE user_id=".makeSafeForDb($userId));
+	return query("SELECT * FROM tasks WHERE user_id=$userId");
 }
 
 function getTasksBoss()
@@ -146,6 +146,11 @@ function getOrganisations()
 function getProjects($orgId)
 {
 	return query("SELECT * FROM projects WHERE organization_id = $orgId");
+}
+
+function getProjectsOfClient($clientId)
+{
+	return query("SELECT * FROM projects WHERE c_id = $clientId");
 }
 
 function getTasksOfProject($projectId)
