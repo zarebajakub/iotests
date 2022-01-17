@@ -1,3 +1,20 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$employees = viewEmployes();
+if(isset($employees[0]) && is_array($employees) && !empty($employees))
+{
+    $employees = [$employees];
+}
+else { $employees = []; }
+
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -112,43 +129,46 @@
 </header>
 <section class="u-clearfix u-section-1" id="sec-500e">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-default u-text-1">Pracowik X</h3>
-        <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
-            <div class="u-container-layout u-container-layout-1">
-                <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                    <div class="u-layout">
-                        <div class="u-layout-col">
-                            <div class="u-size-30">
-                                <div class="u-layout-row">
+        <?php 
+            foreach($employees as $emp) {?>
+            <h3 class="u-text u-text-default u-text-1"><?= $emp['name'] ?></h3>
+            <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
+                <div class="u-container-layout u-container-layout-1">
+                    <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                        <div class="u-layout">
+                            <div class="u-layout-col">
+                                <div class="u-size-30">
+                                    <div class="u-layout-row">
 
 
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                                        <div class="u-container-layout u-valign-top u-container-layout-2">
-                                            <a href="projekty.php#sec-2332" data-page-id="569529656"
-                                               class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">Projekt
-                                                X</a>
-                                            <h5 class="u-text u-text-default u-text-2">Nazwa zadania&nbsp;</h5>
-                                            <h6 class="u-text u-text-3">Opis zadania&nbsp;</h6>
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                            <div class="u-container-layout u-valign-top u-container-layout-2">
+                                                <a href="projekty.php#sec-2332" data-page-id="569529656"
+                                                class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">Projekt
+                                                    X</a>
+                                                <h5 class="u-text u-text-default u-text-2">Nazwa zadania&nbsp;</h5>
+                                                <h6 class="u-text u-text-3">Opis zadania&nbsp;</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                                        <div class="u-container-layout u-valign-top u-container-layout-3">
-                                            <a href="projekty.php#sec-2332" data-page-id="569529656"
-                                               class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Projekt
-                                                Y</a>
-                                            <h5 class="u-text u-text-default u-text-4">Nazwa zadania&nbsp;</h5>
-                                            <h6 class="u-text u-text-5">Opis zadania&nbsp;</h6>
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                            <div class="u-container-layout u-valign-top u-container-layout-3">
+                                                <a href="projekty.php#sec-2332" data-page-id="569529656"
+                                                class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Projekt
+                                                    Y</a>
+                                                <h5 class="u-text u-text-default u-text-4">Nazwa zadania&nbsp;</h5>
+                                                <h6 class="u-text u-text-5">Opis zadania&nbsp;</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="u-size-30">
-                                <div class="u-layout-row">
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
-                                        <div class="u-container-layout u-container-layout-4"></div>
-                                    </div>
-                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
-                                        <div class="u-container-layout u-container-layout-5"></div>
+                                <div class="u-size-30">
+                                    <div class="u-layout-row">
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
+                                            <div class="u-container-layout u-container-layout-4"></div>
+                                        </div>
+                                        <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
+                                            <div class="u-container-layout u-container-layout-5"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +176,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 <section class="u-clearfix u-section-2" id="sec-b022">

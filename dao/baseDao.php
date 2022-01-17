@@ -148,11 +148,11 @@ function addProjectForOrganisation($orgId, $clientId, $desc)
     return query("INSERT INTO projects(organization_id, c_id, description) VALUES ($orgId, $clientId, $desc)");
 }
 
-function addOrganisation($owner, $name)
+function addOrganisation($name, $owner)
 {
     $owner = makeSafeForDb($owner);
     $name = makeSafeForDb($name);
-    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
+    return query("INSERT INTO organizations(name, owner) VALUES ($name, $owner)");
 }
 
 function getOrganisations()
