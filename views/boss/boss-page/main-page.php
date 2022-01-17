@@ -14,7 +14,7 @@ $doc_root = $_SESSION['ROOT'];
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona Główna</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
     <link rel="stylesheet" href="css/main-page.css" media="screen">
     <link rel="icon" href="../../images/Untitled.png">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>

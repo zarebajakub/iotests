@@ -33,7 +33,7 @@ else { $projects = []; }
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Projekty</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
     <link rel="stylesheet" href="../../css/Projekty.css" media="screen">
     <link rel="icon" href="../../images/Untitled.png">
 

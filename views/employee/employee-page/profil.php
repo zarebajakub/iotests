@@ -13,7 +13,7 @@ $doc_root = $_SESSION['ROOT'];
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Profil</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
     <link rel="stylesheet" href="css/profil.css" media="screen">
     <link rel="icon" href="../../images/Untitled.png">
 

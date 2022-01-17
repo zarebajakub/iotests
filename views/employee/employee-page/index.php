@@ -20,7 +20,7 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona Główna</title>
-    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
     <link rel="stylesheet" href="css/main-page.css" media="screen">
     <link rel="icon" href="../../images/Untitled.png">
 
