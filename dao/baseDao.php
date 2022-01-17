@@ -70,6 +70,8 @@ function addUserAdditionalInfo($name, $surname, $organisationId, $id)
 {
     $name = makeSafeForDb($name);
     $surname = makeSafeForDb($surname);
+    $organisationId = makeSafeForDb($organisationId);
+    $id = makeSafeForDb($id);
     return query("UPDATE users SET name = $name, surname = $surname, organization_id = $organisationId WHERE user_id = $id");
 }
 
