@@ -8,7 +8,7 @@ $doc_root = $_SESSION['ROOT'];
 require_once $doc_root.'/dao/baseDao.php';
 
 $organisations = getOrganisations();
-if(!isset($organisations[0]) && is_array($organisations) && !empty($organisations))
+if(isset($organisations[0]) && is_array($organisations) && !empty($organisations))
 {
     $organisations = [$organisations];
 }

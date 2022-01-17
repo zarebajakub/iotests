@@ -8,7 +8,7 @@ $doc_root = $_SESSION['ROOT'];
 require_once $doc_root.'/dao/baseDao.php';
 
 $employees = viewEmployes();
-if(!isset($employees[0]) && is_array($employees) && !empty($employees))
+if(isset($employees[0]) && is_array($employees) && !empty($employees))
 {
     $employees = [$employees];
 }

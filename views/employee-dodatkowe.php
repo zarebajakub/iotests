@@ -9,7 +9,7 @@ require_once $doc_root.'config.php';
 require_once $doc_root.'common.php';
 
 $organisations = getOrganisations();
-if (!isset($organisations[0]) && is_array($organisations) && !empty($organisations)) {
+if (isset($organisations[0]) && is_array($organisations) && !empty($organisations)) {
   $organisations = [$organisations];
 }
 else { $organisations = []; }
@@ -22,7 +22,7 @@ else { $organisations = []; }
     <meta name="keywords" content="Dodaj zadanie, Ostatnio dodane zadania">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>employee-boss-dodatkowe</title>
+    <title>employee-dodatkowe</title>
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
 <link rel="stylesheet" href="css/employee-boss-dodatkowe.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>

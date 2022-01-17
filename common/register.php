@@ -24,7 +24,7 @@ $repeat_password = $_POST['pass-repeat'];
 
 if($_POST['pass'] != $_POST['pass-repeat'])
 {
-    redirect('signup.php', ['Hasła powinny być takie same']);
+    redirect('/views/signup.php', ['Hasła powinny być takie same']);
 }
 
 $password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
@@ -87,7 +87,7 @@ if($ok)
 }
 else
 {
-    redirect('signup.php', ['Coś poszło nie tak z rejestracją']);
+    redirect('/views/signup.php', ['Coś poszło nie tak z rejestracją']);
 }
 
 

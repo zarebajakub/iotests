@@ -7,7 +7,7 @@ $doc_root = $_SESSION['ROOT'];
 require_once $doc_root . '/dao/baseDao.php';
 
 $tasks = getProjectsOfClient($_SESSION['User']['clients_id']);
-if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
+if (isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     $tasks = [$tasks];
 }
 ?>

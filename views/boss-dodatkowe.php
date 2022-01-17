@@ -18,7 +18,7 @@ require_once $doc_root.'common.php';
     <meta name="keywords" content="Dodaj zadanie, Ostatnio dodane zadania">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>employee-boss-dodatkowe</title>
+    <title>boss-dodatkowe</title>
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
 <link rel="stylesheet" href="css/employee-boss-dodatkowe.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>

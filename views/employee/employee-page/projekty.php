@@ -7,7 +7,7 @@ $doc_root = $_SESSION['ROOT'];
 require_once $doc_root . '/dao/baseDao.php';
 
 $tasks = getTasksEmployee($_SESSION['User']['user_id']);
-if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
+if (isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     $tasks = [$tasks];
 }
 ?>
