@@ -1,4 +1,7 @@
 <?php
+/**
+ * ten plik odpowiada za dodanie projektu dla danej firmy i przekierowuje na strone glowna klienta
+ */
 if (session_status() == PHP_SESSION_NONE) 
 {
     session_start();

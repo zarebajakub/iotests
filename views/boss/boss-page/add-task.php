@@ -12,8 +12,6 @@ if(isset($employees[0]) && is_array($employees) && !empty($employees))
 {
     $employees = [$employees];
 }
-//print_r($employees);
-//print_r($doc_root);
 ?>
 <!DOCTYPE html>
 <html lang="en">

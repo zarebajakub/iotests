@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * W tym pliku jest sprawdzenie czy istnieje uzytkownik o danym e-mailu i hasle w bazie jesli tak to 
+ * cofa do signup.php, jesli nie to tworzy nowe konto w bazie i przekierowuje do dalszego procesu rejestracji
+ * 
+ */
 if (session_status() == PHP_SESSION_NONE) 
 {
     session_start();

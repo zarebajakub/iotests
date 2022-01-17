@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * kontener klienta
+ * przechowuje wszystkie istotne dane dla uzytkownika jakim jets klient
+ * 
+ */
+
 namespace models;
 
 class Client
@@ -10,7 +16,6 @@ class Client
     public $password;
     public $email;
     public $phoneNumber;
-    public $companyName;
 
     public function __construct($userMap=[])
     {
@@ -20,7 +25,6 @@ class Client
         if(isset($userMap['password'])) { $this->password = $userMap['pass']; }
         if(isset($userMap['email'])) { $this->email = $userMap['email']; }
         if(isset($userMap['phoneNumber'])) { $this->phoneNumber = $userMap['phoneNumber']; }
-        if(isset($userMap['companyName'])) { $this->companyName = $userMap['companyName']; }
     }
 
 }

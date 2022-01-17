@@ -70,7 +70,8 @@ else { $projects = []; }
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Profil.php" style="padding: 10px 20px;">Profil</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="pracownicy.php" style="padding: 10px 20px;">Pracownicy</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="dodaj-zadanie.html" style="padding: 10px 20px;">Dodaj zadanie</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="dodaj-zadanie.php" style="padding: 10px 20px;">Dodaj zadanie</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">

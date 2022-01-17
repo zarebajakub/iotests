@@ -8,7 +8,6 @@ $dbName = "projekt_io_db";
 $TAB_TABELA = "tabela";
 
 $mysql = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-// Check connection
 if ($mysql->connect_error) {
   die("Connection failed: " . $mysql->connect_error);
 } 

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * kontener uzytkownika
+ * przechowuje wszystkie istotne dane dla uzytkownika jakim jest uzytkownik (w bazie)
+ * 
+ */
+
 namespace models;
 
 class User
@@ -10,7 +16,7 @@ class User
     public $surname;
     public $password;
     public $email;
-    public $type; // employee, boss
+    public $type;
 
     public function __construct($userMap=[])
     {

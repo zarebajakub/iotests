@@ -124,8 +124,7 @@ if(isset($organisations[0]) && is_array($organisations) && !empty($organisations
         <?php
             if(isset($_SESSION['lastPageData'][0]))
             {
-                print_r($_SESSION['lastPageData'][0]);
-                //echo '<h1 class="u-align-left u-text u-text-default u-text-1">'.$_SESSION['lastPageData'][0].'</h1>';
+                echo $_SESSION['lastPageData'][0];
             }
         ?>
         <h2 class="u-align-left u-text u-text-default u-text-1">Dodaj zadanie&nbsp;</h2>
@@ -140,7 +139,6 @@ if(isset($organisations[0]) && is_array($organisations) && !empty($organisations
                                 <select id="select-0a65" name="organisation-id"
                                         class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
                                     <?php 
-                                    print_r($organisations);
                                         foreach($organisations as $org)
                                         {
                                             ?>

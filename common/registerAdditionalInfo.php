@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * ten plik jest odpowiedzialny za zebranie dodatkowych informacji od uzytkownika typu imie, nazwisko, numer
+ * dla klienta lub nazwa organizacji dla pracownika/ project managera i przekierowuje do odpowiedniej
+ * strony glownej (w zaleznosci od typu uzytkownika - klient/pracownika/menedzer projektu)
+ * 
+ */
 
 if (session_status() == PHP_SESSION_NONE) 
 {

@@ -5,25 +5,10 @@ define('CLIENT', 1);
 define('EMPLOYEE', CLIENT + 1);
 define('BOSS', EMPLOYEE + 1);
 
-function debug($data)
-{
-    echo "<pre>";
-    if(is_array($data))
-    {
-        foreach($data as $el)
-        {
-            print_r($el);
-            echo "<br>";
-        }
-    }
-    else
-    {
-        print_r($data);
-    }
-    echo "</pre>";
-    die();
-}
-
+/**
+ * funkcja ktory przekierowuje na podany adres na stronie, url to adres a data to dane ktore maja
+ * byc przekazane na nastepnej stronie
+ */
 function redirect($url, $data=[])
 {
     if (session_status() == PHP_SESSION_NONE) 
@@ -36,6 +21,9 @@ function redirect($url, $data=[])
     exit();
 }
 
+/**
+ * zwraca jakiego typu jest podany uzytkownik
+ */
 function whoIsIt($user)
 {
     if(isset($user['uprawnienia']))
@@ -56,6 +44,9 @@ function whoIsIt($user)
     return false;
 }
 
+/**
+ * konwertuje string na format przyjazny dla bazy
+ */
 function makeSafeForDb($str)
 {
     return '"'.$str.'"';

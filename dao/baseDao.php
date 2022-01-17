@@ -6,6 +6,11 @@ use models\User;
 use models\Client;
 use models\Task;
 
+
+/**
+ * Podstawowa funkcja do zapytan bazy danych, jesli kwerenda zwrocila jakies dane funkcja zwraca je 
+ * (jako tablica) a jesli wywalila blad przechwytuje go i wysiwietla komunikat bledu
+ */
 function query($query)
 {
     try
@@ -47,6 +52,9 @@ function query($query)
     }
 }
 
+/**
+ * wyszukuje usera w bazie o danym emailu i hasle, zwraca rezultat zapytania sqloego w formie tablicy
+ */
 function findUser($email, $passEncrypted)
 {
     $email = makeSafeForDb($email);
@@ -61,11 +69,17 @@ function findUser($email, $passEncrypted)
     return $client;
 }
 
+/**
+ * rejestruje uzytkownika
+ */
 function registerUser(User $user)
 {
     return query("INSERT INTO users(email, password, uprawnienia) VALUES (".makeSafeForDb($user->email).", ".makeSafeForDb($user->password).", $user->type)");
 }
 
+/**
+ * uzupelnia brakujace dane po rejestracji o uzytkowniku (pracownik/menedzer projektu)
+ */
 function addUserAdditionalInfo($name, $surname, $organisationId, $id)
 {
     $name = makeSafeForDb($name);
@@ -75,6 +89,9 @@ function addUserAdditionalInfo($name, $surname, $organisationId, $id)
     return query("UPDATE users SET name = $name, surname = $surname, organization_id = $organisationId WHERE user_id = $id");
 }
 
+/**
+ * uzupelnia brakujace dane po rejestracji o uzytkowniku (klient)
+ */
 function addClientAdditionalInfo($name, $surname, $phone, $id)
 {
     $name = makeSafeForDb($name);
@@ -84,63 +101,59 @@ function addClientAdditionalInfo($name, $surname, $phone, $id)
     return query("UPDATE clients SET name = $name, surname = $surname, telefon = $phone WHERE clients_id = $id");
 }
 
+/**
+ * rejestruje klienta
+ */
 function registerClient(Client $client)
 {
     return query("INSERT INTO clients(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
 }
 
+/**
+ * zwraca wszystkich pracownikow jacy sa w bazie
+ */
 function viewEmployes()
 {
 	return query("SELECT * FROM users WHERE uprawnienia = ".EMPLOYEE);	
 }
 
+/**
+ * zwraca wszystkich pracownikow przypisanych do danej organizacji
+ */
 function getEmployesOfOrganisation($organisationId)
 {
 	return query("SELECT * FROM users WHERE uprawnienia = ".EMPLOYEE." AND organization_id = ".makeSafeForDb($organisationId));	
 }
 
+/**
+ * dodaje zadanie do bazy
+ */
 function addTask($project_id,$user_id, $desc)
 {
     $desc = makeSafeForDb($desc);
 	return query("INSERT INTO tasks(projects_id, user_id, description) VALUES ($project_id,$user_id,$desc)");
 }
 
-function deleteTask($project_id,$user_id)
-{
-	return query("DELETE FROM tasks WHERE projects_id = $project_id AND user_id = $user_id");
-}
-
-function markAsCompletedTask($task_id)
-{
-	return query("UPDATE tasks SET finished=1 WHERE task_id='$task_id'");
-}
-
-function addEmployee($organization_id) 
-{
-	return query("INSERT INTO users VALUES ()");
-}
-
-function editProfile($password,$name,$surname)
-{
-	return query("UPDATE user SET (password,name,surname) = ($password,$name,$surname)");
-}
-
-function editTask(Task $task)
-{
-	return query("UPDATE task SET description=$task->description WHERE task_id=$task->id");
-}
-
+/**
+ * zwraca zadania przypisane pracownikowi
+ */
 function getTasksEmployee($userId)
 {
     if($userId == false) { return []; }
 	return query("SELECT * FROM tasks WHERE user_id=$userId");
 }
 
+/**
+ * zwraca wszystkie zadania
+ */
 function getTasksBoss()
 {
 	return query("SELECT * FROM tasks");
 }
 
+/**
+ * dodaje projekt dla danej firmy
+ */
 function addProjectForOrganisation($orgId, $clientId, $desc)
 {
     $orgId = makeSafeForDb($orgId);
@@ -149,6 +162,9 @@ function addProjectForOrganisation($orgId, $clientId, $desc)
     return query("INSERT INTO projects(organization_id, c_id, description) VALUES ($orgId, $clientId, $desc)");
 }
 
+/**
+ * dodaje nowa firme do bazy
+ */
 function addOrganisation($name, $owner)
 {
     $owner = makeSafeForDb($owner);
@@ -156,28 +172,43 @@ function addOrganisation($name, $owner)
     return query("INSERT INTO organizations(name, owner) VALUES ($name, $owner)");
 }
 
+/**
+ * zwraca wszystkie firmy w systemie
+ */
 function getOrganisations()
 {
 	return query("SELECT * FROM organizations");
 }
 
+/**
+ * zwraca ostatnio dodana organizacje
+ */
 function getLastAddedOrganisation()
 {
 	return query("SELECT * FROM organizations WHERE organization_id = (SELECT LAST_INSERT_ID())");
 }
 
+/**
+ * zwraca wszystkie projekty(zadanie zlecone przez klienta) danej organizacji
+ */
 function getProjects($orgId)
 {
     if($orgId == false) { return []; }
 	return query("SELECT * FROM projects WHERE organization_id = $orgId");
 }
 
+/**
+ * zwraca projekty, ktore zlecil dany klient
+ */
 function getProjectsOfClient($clientId)
 {
     if($clientId == false) { return []; }
 	return query("SELECT * FROM projects WHERE c_id = $clientId");
 }
 
+/**
+ * zwraca zadania przypisane do danego projektu
+ */
 function getTasksOfProject($projectId)
 {
     if($projectId == false) { return []; }

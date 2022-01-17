@@ -1,4 +1,7 @@
 <?php
+/**
+ * ten plik odpowiada za dodanie zadania i przekierowanie na strone glowna menedzera projektu
+ */
 if (session_status() == PHP_SESSION_NONE) 
 {
     session_start();
