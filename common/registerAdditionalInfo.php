@@ -46,7 +46,7 @@ else if($userType == 'project-manager')
 else if($userType == 'client')
 {
     $notOkUrl = '/views/klient-dodatkowe.php';
-    $ok = addClientAdditionalInfo($_POST['name'], $_POST['surname'], $_POST['phone'], $_SESSION['User']['user_id']);
+    $ok = addClientAdditionalInfo($_POST['name'], $_POST['surname'], $_POST['phone'], $_SESSION['User']['clients_id']);
     if($ok)
     {
         $url = '/views/client/client-page/main-page.php';

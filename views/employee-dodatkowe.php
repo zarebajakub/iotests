@@ -5,8 +5,7 @@ if (session_status() == PHP_SESSION_NONE)
 }
 $doc_root = $_SESSION['ROOT'];
 
-require_once $doc_root.'config.php';
-require_once $doc_root.'common.php';
+require_once $doc_root . '/dao/baseDao.php';
 
 $organisations = getOrganisations();
 if (isset($organisations[0]) && is_array($organisations) && !empty($organisations)) {
