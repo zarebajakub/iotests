@@ -83,6 +83,7 @@ else if($userType == 'client')
 
 if($ok)
 {
+    $_SESSION['User'] = findUser($email, $password);
     redirect($url, [$userType]);
 }
 else
