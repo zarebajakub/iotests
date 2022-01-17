@@ -83,7 +83,7 @@ else if($userType == 'client')
 
 if($ok)
 {
-    redirect($url);
+    redirect($url, [$userType]);
 }
 else
 {

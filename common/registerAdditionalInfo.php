@@ -14,13 +14,11 @@ require_once $doc_root.'/common.php';
 require_once $doc_root.'/models/User.php';
 require_once $doc_root.'/models/Client.php';
 
-
-$email = htmlentities($_POST['email']);
-$password = $_POST['pass'];
-$repeat_password = $_POST['pass-repeat'];
-
-
-$userType = $_POST['user-type'];
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$userType = $_SESSION['lastPageData'][0];
 
 $url = "";
 $notOkUrl = "";
