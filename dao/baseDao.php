@@ -103,7 +103,7 @@ function addEmployee($organization_id) //TODO PRZEMYŚLEĆ CZY W TYM MOMENCIE EM
 }
 
  // BEDZIE MUSIAŁO BYC DWOJAKO DLA KLIENTA I USERA EWENTUALNIE ZROBIĆ TYLKO DLA KLIENTA
-function editProfile()
+function editProfile($password,$name,$surname)
 {
 	return query("UPDATE user SET (password,name,surname) = ($password,$name,$surname)");
 }
@@ -115,6 +115,7 @@ function editTask(Task $task)
 
 function getTasksEmployee($userId)
 {
+    if($userId == false) { return []; }
 	return query("SELECT * FROM tasks WHERE user_id=$userId");
 }
 
@@ -145,16 +146,19 @@ function getOrganisations()
 
 function getProjects($orgId)
 {
+    if($orgId == false) { return []; }
 	return query("SELECT * FROM projects WHERE organization_id = $orgId");
 }
 
 function getProjectsOfClient($clientId)
 {
+    if($clientId == false) { return []; }
 	return query("SELECT * FROM projects WHERE c_id = $clientId");
 }
 
 function getTasksOfProject($projectId)
 {
+    if($projectId == false) { return []; }
     return query("SELECT * FROM tasks WHERE projects_id = $projectId");
 }
 

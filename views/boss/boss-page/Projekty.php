@@ -13,11 +13,16 @@ if(!isset($projects[0]) && is_array($projects) && !empty($projects))
     $projects = [$projects];
 }
 
-foreach($projects as $project)
+if($projects !== false && count($projects) > 0 )
 {
-    $project['tasks'] = getTasksOfProject($project['project_id']);
-    $project['tasks'] = [$project['tasks']];
+    foreach($projects as $project)
+    {
+        $project['tasks'] = getTasksOfProject($project['project_id']);
+        $project['tasks'] = [$project['tasks']];
+    }
 }
+else { $projects = []; }
+
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -127,6 +132,11 @@ foreach($projects as $project)
     </div>
 </header>
 <section class="u-align-left u-clearfix u-section-1" id="sec-2332">
+    <div class="u-container-layout u-container-layout-1">
+        <a class="u-align-right u-border-1 u-border-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1"
+            href="add-task.php">
+            Dodaj Zadanie </a>
+    </div>
     <div class="u-clearfix u-sheet u-sheet-1">
 
         <?php foreach($projects as $project) { ?>

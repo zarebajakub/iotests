@@ -1,8 +1,9 @@
 <?php
 require_once 'config.php';
+require_once 'common.php';
 include('navbar.php');
 
-echo $_SERVER['HTTP_HOST'];
+redirect('/views/Welcome-Page.html');
 ?>
 
 <div>

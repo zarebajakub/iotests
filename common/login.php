@@ -23,16 +23,16 @@ if($user)
 
     if($userType == EMPLOYEE)
     {
-        redirect('/views/employee/employee-page/index.html');
+        redirect('/views/employee/employee-page/main-page.php');
     }
     else if($userType == BOSS)
     {
-        redirect('/views/boss/boss-page/index.html');
+        redirect('/views/boss/boss-page/main-page.php');
     }
     else if($userType == CLIENT)
     {
-        redirect('/views/client/client-page/index.html');
+        redirect('/views/client/client-page/main-page.php');
     }
 }
-redirect('login.php');
+redirect('/views/login.php');
 ?>
