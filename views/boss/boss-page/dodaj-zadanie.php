@@ -1,3 +1,26 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'/dao/baseDao.php';
+
+$employees = viewEmployes();
+if(isset($employees[0]) && is_array($employees) && !empty($employees))
+{
+    $employees = [$employees];
+}
+else { $employees = []; }
+
+$projects = getProjects($_SESSION['User']['organization_id']);
+if(isset($projects[0]) && is_array($projects) && !empty($projects))
+{
+    $projects = [$projects];
+}
+else { $projects = []; }
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -72,14 +95,17 @@
         <div class="u-align-center u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
             <div class="u-form u-palette-5-light-2 u-radius-10 u-form-1">
-              <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+              <form action="<?=$SUB_FOLDER?>/controllers/action-add-task.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                 <div class="u-form-group u-form-select u-form-group-1">
                   <label for="select-0a65" class="u-label">Wybierz projekt</label>
                   <div class="u-form-select-wrapper">
-                    <select id="select-0a65" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
-                      <option value="Projekt 1">Projekt 1</option>
-                      <option value="Projekt 2">Projekt 2</option>
-                      <option value="Projekt 3">Projekt 3</option>
+                    <select id="select-0a65" name="project_id" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
+                      <?php 
+                                foreach($projects as $project)
+                                {
+                                    echo '<option value="'.$project['project_id'].'">'.$project['name'].'</option>';
+                                }
+                            ?>
                     </select>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
                   </div>
@@ -87,16 +113,20 @@
                 <div class="u-form-group u-form-select u-form-group-2">
                   <label for="select-ddf4" class="u-label">Wybierz pracownika</label>
                   <div class="u-form-select-wrapper">
-                    <select id="select-ddf4" name="select-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
-                      <option value="Pracownik 1">Pracownik 1</option>
-                      <option value="Pracownik 2">Pracownik 2</option>
-                    </select>
+                    <select name="user_id" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
+                      <?php 
+                              foreach($employees as $emp)
+                              {
+                                  echo '<option value="'.$emp['user_id'].'">'.$emp['name']. " " . $emp['surname'].'</option>';
+                              }
+                          ?>
+                      </select>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
                   </div>
                 </div>
                 <div class="u-form-group u-form-name">
                   <label for="name-39a1" class="u-label">Opis zadania </label>
-                  <input type="text" placeholder="Opis " id="name-39a1" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
+                  <input type="text" placeholder="Opis " id="name-39a1" name="description" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
                 </div>
                 <div class="u-align-left u-form-group u-form-submit">
                   <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-10">Prześlij</a>

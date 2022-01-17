@@ -99,7 +99,7 @@ else { $projects = []; }
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="add-task.php" style="padding: 10px 20px;">Dodaj zadanie</a>
+                                href="dodaj-zadanie.php" style="padding: 10px 20px;">Dodaj zadanie</a>
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -125,7 +125,7 @@ else { $projects = []; }
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="pracownicy.html"
                                                       style="padding: 10px 20px;">Pracownicy</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="add-task.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="dodaj-zadanie.php"
                                                       style="padding: 10px 20px;">Dodaj zadanie</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
