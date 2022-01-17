@@ -140,6 +140,7 @@ if(isset($organisations[0]) && is_array($organisations) && !empty($organisations
                                 <select id="select-0a65" name="organisation-id"
                                         class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white">
                                     <?php 
+                                    print_r($organisations);
                                         foreach($organisations as $org)
                                         {
                                             ?>

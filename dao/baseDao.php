@@ -80,7 +80,8 @@ function addClientAdditionalInfo($name, $surname, $phone, $id)
     $name = makeSafeForDb($name);
     $surname = makeSafeForDb($surname);
     $phone = makeSafeForDb($phone);
-    return query("UPDATE clients SET name = $name, surname = $surname, phone = $phone WHERE clients_id = $id");
+    $id = makeSafeForDb($id);
+    return query("UPDATE clients SET name = $name, surname = $surname, telefon = $phone WHERE clients_id = $id");
 }
 
 function registerClient(Client $client)

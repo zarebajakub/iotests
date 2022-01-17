@@ -99,8 +99,8 @@
                         Sign up
                     </button>
                     <span class="login100UserHasAccount p-t-23">
-					Already have an account?<a class="link" href="login.html"><br>
-												   Sign in</a> <br>
+					Already have an account?<a class="link" href="login.php"><br>
+												   Log in</a> <br>
 					<br>
                     </span>
                 </div>
