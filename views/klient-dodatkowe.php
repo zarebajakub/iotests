@@ -54,7 +54,7 @@
                   <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Wprowadź swój numer telefonu (np. +14155552675)" id="phone-a766" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                 </div>
                 <div class="u-align-left u-form-group u-form-submit">
-                  <a href="#" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>
+                  <a href="<?=$SUB_FOLDER."/common/registerAdditionalInfo.php"?>" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>
                   </a>
                   <input type="submit" value="submit" class="u-form-control-hidden">
                 </div>

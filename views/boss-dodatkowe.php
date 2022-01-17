@@ -66,7 +66,7 @@ require_once $doc_root.'common.php';
                   <input type="text" placeholder="Wprowadź nazwę swojej organizacji " id="text-78af" name="organisation-name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
                 </div>
                 <div class="u-align-left u-form-group u-form-submit">
-                  <a href="#" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>
+                  <a href="<?=$SUB_FOLDER."/common/registerAdditionalInfo.php"?>" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>
                   </a>
                   <input type="submit" value="submit" class="u-form-control-hidden">
                 </div>
