@@ -1,15 +1,13 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) 
-{
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $doc_root = $_SESSION['ROOT'];
 
-require_once $doc_root.'/dao/baseDao.php';
+require_once $doc_root . '/dao/baseDao.php';
 
 $tasks = getTasksEmployee($_SESSION['User']['user_id']);
-if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
-{
+if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     $tasks = [$tasks];
 }
 ?>
@@ -33,11 +31,11 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
 
 
     <script type="application/ld+json">{
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "Boss Page ",
-        "logo": "images/Untitled.png"
-    }</script>
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Boss Page ",
+            "logo": "images/Untitled.png"
+        }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Strona Główna">
     <meta property="og:description" content="">
@@ -70,16 +68,20 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -96,6 +98,9 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
                     </div>
@@ -129,7 +134,7 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
         <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-container-layout-1">
 
-                <?php foreach($tasks as $task) { ?>
+                <?php foreach ($tasks as $task) { ?>
                     <div class="u-align-left u-clearfix u-expanded-width u-gutter-26 u-layout-wrap u-layout-wrap-1">
                         <div class="u-layout">
                             <div class="u-layout-col">
@@ -137,13 +142,14 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
                                     <div class="u-layout-row">
                                         <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                                             <div class="u-container-layout u-container-layout-2">
-                                                <h3 class="u-text u-text-default u-text-2">Zadanie do zrobienia&nbsp;</h3>
+                                                <h3 class="u-text u-text-default u-text-2">Zadanie do
+                                                    zrobienia&nbsp;</h3>
                                             </div>
                                         </div>
                                         <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                                             <div class="u-container-layout u-valign-middle u-container-layout-3">
                                                 <a href="https://nicepage.me"
-                                                class="u-align-left u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Oznacz
+                                                   class="u-align-left u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Oznacz
                                                     jako wykonane</a>
                                             </div>
                                         </div>

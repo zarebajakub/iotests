@@ -1,15 +1,13 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) 
-{
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $doc_root = $_SESSION['ROOT'];
 
-require_once $doc_root.'/dao/baseDao.php';
+require_once $doc_root . '/dao/baseDao.php';
 
 $tasks = getTasksEmployee($_SESSION['User']['user_id']);
-if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
-{
+if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     $tasks = [$tasks];
 }
 ?>
@@ -34,11 +32,11 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
 
 
     <script type="application/ld+json">{
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "Boss Page ",
-        "logo": "images/Untitled.png"
-    }</script>
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Boss Page ",
+            "logo": "images/Untitled.png"
+        }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Projekty">
     <meta property="og:description" content="">
@@ -71,16 +69,20 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -97,6 +99,9 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
                     </div>
@@ -125,15 +130,14 @@ if(!isset($tasks[0]) && is_array($tasks) && !empty($tasks))
                 <div class="u-align-left u-container-style u-tab-active u-tab-pane" id="tab-081f" role="tabpanel"
                      aria-labelledby="link-tab-081f">
                     <div class="u-container-layout u-container-layout-1">
-                        <?php 
-                        foreach($tasks as $task)
-                        {
+                        <?php
+                        foreach ($tasks as $task) {
                             ?>
-                           <h5 class="u-text u-text-default u-text-2">Nazwa zadania: <?= $task['task_id'] ?>&nbsp;</h5>
-                           <h5 class="u-text u-text-3">Opis zadania: &nbsp;</h5>
-                           <h6 class="u-text u-text-3"><?= $task['description'] ?> &nbsp;</h6>
+                            <h5 class="u-text u-text-default u-text-2">Nazwa zadania: <?= $task['task_id'] ?>&nbsp;</h5>
+                            <h5 class="u-text u-text-3">Opis zadania: &nbsp;</h5>
+                            <h6 class="u-text u-text-3"><?= $task['description'] ?> &nbsp;</h6>
                         <?php } ?>
-                        
+
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-tab-pane" id="link-tab-6219" role="tabpanel"

@@ -29,7 +29,7 @@ foreach($projects as $project)
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Projekty</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="Projekty.css" media="screen">
+    <link rel="stylesheet" href="../../css/Projekty.css" media="screen">
     <link rel="icon" href="images/Untitled.png">
 
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -92,6 +92,11 @@ foreach($projects as $project)
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                             href="Pracownicy.html" style="padding: 10px 20px;">Pracownicy</a>
                     </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                    </li>
+
                 </ul>
             </div>
             <div class="u-custom-menu u-nav-container-collapse">
@@ -111,6 +116,8 @@ foreach($projects as $project)
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pracownicy.html"
                                                       style="padding: 10px 20px;">Pracownicy</a>
                             </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
                         </ul>
                     </div>
                 </div>

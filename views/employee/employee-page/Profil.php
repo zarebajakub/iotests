@@ -1,6 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) 
-{
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $doc_root = $_SESSION['ROOT'];
@@ -26,11 +25,11 @@ $doc_root = $_SESSION['ROOT'];
 
 
     <script type="application/ld+json">{
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "Boss Page ",
-        "logo": "images/Untitled.png"
-    }</script>
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Boss Page ",
+            "logo": "images/Untitled.png"
+        }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Profil">
     <meta property="og:description" content="">
@@ -63,16 +62,20 @@ $doc_root = $_SESSION['ROOT'];
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Profil.php" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -90,6 +93,9 @@ $doc_root = $_SESSION['ROOT'];
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -104,11 +110,11 @@ $doc_root = $_SESSION['ROOT'];
         <div class="u-container-style u-expanded-width u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-container-layout-1">
                 <h3 class="u-text u-text-default u-text-2">Imię&nbsp;</h3>
-                <h5 class="u-text u-text-default u-text-3"><?= $_SESSION['User']['name']?></h5>
+                <h5 class="u-text u-text-default u-text-3"><?= $_SESSION['User']['name'] ?></h5>
                 <h3 class="u-text u-text-default u-text-4">Nazwisko</h3>
-                <h5 class="u-text u-text-default u-text-5"><?= $_SESSION['User']['surname']?></h5>
+                <h5 class="u-text u-text-default u-text-5"><?= $_SESSION['User']['surname'] ?></h5>
                 <h3 class="u-text u-text-default u-text-6">Email</h3>
-                <h5 class="u-text u-text-default u-text-7"><?= $_SESSION['User']['email']?></h5>
+                <h5 class="u-text u-text-default u-text-7"><?= $_SESSION['User']['email'] ?></h5>
                 <a href="#https://nicepage.review"
                    class="u-border-2 u-border-black u-btn u-button-style u-dialog-link u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Edytuj
                     profil</a>

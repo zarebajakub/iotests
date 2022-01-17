@@ -77,6 +77,10 @@ $doc_root = $_SESSION['ROOT'];
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                             href="Pracownicy.html" style="padding: 10px 20px;">Pracownicy</a>
                     </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                    </li>
                 </ul>
             </div>
             <div class="u-custom-menu u-nav-container-collapse">
@@ -95,6 +99,9 @@ $doc_root = $_SESSION['ROOT'];
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pracownicy.html"
                                                       style="padding: 10px 20px;">Pracownicy</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
                     </div>

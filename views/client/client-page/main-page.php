@@ -24,7 +24,7 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
     <title>Strona Główna</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
     <link rel="stylesheet" href="main-page.css" media="screen">
-    <link rel="icon" href="images/Untitled.png">
+    <link rel="icon" href="images/Logo.png">
 
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
@@ -47,7 +47,7 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
 <header class="u-clearfix u-header u-header" id="sec-9336">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
-            <img src="images/Untitled.png" class="u-logo-image u-logo-image-1">
+            <img src="images/Logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -85,6 +85,10 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                             href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
                     </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                    </li>
                 </ul>
             </div>
             <div class="u-custom-menu u-nav-container-collapse">
@@ -103,6 +107,9 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html"
                                                       style="padding: 10px 20px;">Wykonawcy</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                                                      style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
                     </div>
