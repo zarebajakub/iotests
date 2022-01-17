@@ -1,7 +1,7 @@
 # GetOrganized
 
 ## instrukcja konfiguracji
-Projekt znajduje się na stronie https://student.agh.edu.pl/~jakubzar/test/. Aby uruchomić go na swoim serwerze, należy utworzyć bazę danych przy użyciu database.sql oraz dokonać edycji w pliku config.php. Należy to zrobić umieszczając odpowiednie dane logowania do utworzonej bazy w liniach 3-8, oraz linie ? podmienić na ścieżkę do katalogu głównego projektu na serwerze.
+Projekt znajduje się na stronie https://student.agh.edu.pl/~jakubzar/test/. Aby uruchomić go na swoim serwerze, należy utworzyć bazę danych przy użyciu database.sql oraz dokonać edycji w pliku config.php. Należy to zrobić umieszczając odpowiednie dane logowania do utworzonej bazy w liniach 3-6, oraz linie 24, 26 i 27 podmienić na odpowiednio opisane ścieżki do katalogów na serwerze.
 
 ## dokumentacja użytkownika
 
