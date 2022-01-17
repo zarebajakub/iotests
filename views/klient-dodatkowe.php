@@ -40,7 +40,7 @@
         <div class="u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <div class="u-form u-form-1">
-              <form action=<?='../'.$SUB_FOLDER."/common/registerAdditionalInfo.php"?> method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+              <form action=<?=$SUB_FOLDER."/common/registerAdditionalInfo.php"?> method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                 <div class="u-form-group">
                   <label for="email-56c7" class="u-label">Imię</label>
                   <input type="text" placeholder="Wprowadź imię" id="email-56c7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
@@ -54,8 +54,7 @@
                   <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Wprowadź swój numer telefonu (np. +14155552675)" id="phone-a766" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                 </div>
                 <div class="u-align-left u-form-group u-form-submit">
-                  <a href="<?=$SUB_FOLDER."/common/registerAdditionalInfo.php"?>" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>
-                  </a>
+                  <button>Potwierdź</button>
                   <input type="submit" value="submit" class="u-form-control-hidden">
                 </div>
                 <div class="u-form-send-message u-form-send-success"> Dziękujemy! Twoja wiadomość została wysłana! </div>
