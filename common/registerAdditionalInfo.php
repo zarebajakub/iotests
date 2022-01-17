@@ -35,7 +35,7 @@ if($userType == 'employee')
 else if($userType == 'project-manager')
 {
     $notOkUrl = '/views/boss-dodatkowe.php';
-    $orgId = addOrganisation($POST['organisation-name'],$_SESSION['User']['user_id'])['organization_id'];
+    $orgId = addOrganisation($_POST['organisation-name'],$_SESSION['User']['user_id']);
     $ok = addUserAdditionalInfo($_POST['name'], $_POST['surname'], $orgId, $_SESSION['User']['user_id']);
     if($ok)
     {
