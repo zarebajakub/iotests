@@ -66,6 +66,13 @@ function registerUser(User $user)
     return query("INSERT INTO users(email, password, uprawnienia) VALUES (".makeSafeForDb($user->email).", ".makeSafeForDb($user->password).", $user->type)");
 }
 
+function addUserAdditionalInfo($name, $surname, $organisationId, $id)
+{
+    $name = makeSafeForDb($name);
+    $surname = makeSafeForDb($surname);
+    return query("UPDATE users SET name = $name, surname = $surname, organisation_id = $organisationId WHERE user_id = $id");
+}
+
 function registerClient(Client $client)
 {
     return query("INSERT INTO clients(email, password) VALUES (".makeSafeForDb($client->email).", ".makeSafeForDb($client->password).")");
@@ -97,12 +104,11 @@ function markAsCompletedTask($task_id)
 	return query("UPDATE tasks SET finished=1 WHERE task_id='$task_id'");
 }
 
-function addEmployee($organization_id) //TODO PRZEMYŚLEĆ CZY W TYM MOMENCIE EMPLOYEE MA JUŻ SWOJE KONTO
+function addEmployee($organization_id) 
 {
 	return query("INSERT INTO users VALUES ()");
 }
 
- // BEDZIE MUSIAŁO BYC DWOJAKO DLA KLIENTA I USERA EWENTUALNIE ZROBIĆ TYLKO DLA KLIENTA
 function editProfile($password,$name,$surname)
 {
 	return query("UPDATE user SET (password,name,surname) = ($password,$name,$surname)");

@@ -21,15 +21,6 @@ $email = htmlentities($_POST['email']);
 $password = $_POST['pass'];
 $repeat_password = $_POST['pass-repeat'];
 
-
-if($_POST['pass'] != $_POST['pass-repeat'])
-{
-    redirect('signup.php', ['Hasła powinny być takie same']);
-}
-
-$password = $_POST['pass'];//password_hash($_POST['pass'],  PASSWORD_DEFAULT);
-
-$user = findUser($email, $password);
 if($user)
 {
     redirect('signup.php', ['To konto już istnieje']);
@@ -50,8 +41,7 @@ if($userType == 'employee')
     $ok= registerUser($user);
     if($ok)
     {
-        $url = '/views/employee/employee-page/index.php';
-        //$url = '/views/employee-boss-dodatkowe.php';
+        $url = '/views/employee-boss-dodatkowe.php';
     }
 }
 else if($userType == 'project-manager')
@@ -63,8 +53,7 @@ else if($userType == 'project-manager')
     $ok = registerUser($user);
     if($ok)
     {
-        $url = '/views/boss/boss-page/index.php';
-        //$url = '/views/employee-boss-dodatkowe.php';
+        $url = '/views/employee-boss-dodatkowe.php';
     }
 }
 else if($userType == 'client')
@@ -75,8 +64,7 @@ else if($userType == 'client')
     $ok = registerClient($user);
     if($ok)
     {
-        $url = '/views/client/client-page/index.html';
-        //$url = '/views/klient-dodatkowe.php';
+        $url = '/views/klient-dodatkowe.php';
     }
 }
 

@@ -1,3 +1,15 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+$doc_root = $_SESSION['ROOT'];
+
+require_once $doc_root.'config.php';
+require_once $doc_root.'common.php';
+
+
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -6,9 +18,9 @@
     <meta name="keywords" content="Dodaj zadanie, Ostatnio dodane zadania">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>klient-dodatkowe</title>
+    <title>employee-boss-dodatkowe</title>
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
-<link rel="stylesheet" href="css/klient-dodatkowe.css" media="screen">
+<link rel="stylesheet" href="css/employee-boss-dodatkowe.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
@@ -25,7 +37,7 @@
 		"logo": "images/Untitled.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="klient-dodatkowe">
+    <meta property="og:title" content="employee-boss-dodatkowe">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
@@ -40,18 +52,18 @@
         <div class="u-container-style u-group u-palette-5-light-3 u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <div class="u-form u-form-1">
-              <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+              <form action="<?='../'.$SUB_FOLDER."/common/register.php"?>" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                 <div class="u-form-group">
                   <label for="email-56c7" class="u-label">Imię</label>
-                  <input type="text" placeholder="Wprowadź imię" id="email-56c7" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                  <input type="text" placeholder="Wprowadź imię" id="email-56c7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
                 </div>
                 <div class="u-form-group u-form-name">
                   <label for="name-56c7" class="u-label">Nazwisko</label>
-                  <input type="text" placeholder="Wprowadź swoje nazwisko" id="name-56c7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                  <input type="text" placeholder="Wprowadź swoje nazwisko" id="name-56c7" name="surname" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                 </div>
-                <div class="u-form-group u-form-phone u-form-group-3">
-                  <label for="phone-a766" class="u-label">Numer telefonu</label>
-                  <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Wprowadź swój numer telefonu (np. +14155552675)" id="phone-a766" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                <div class="u-form-group u-form-group-3">
+                  <label for="text-78af" class="u-label">Organizacja </label>
+                  <input type="text" placeholder="Wprowadź nazwę swojej organizacji " id="text-78af" name="organisation" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
                 </div>
                 <div class="u-align-left u-form-group u-form-submit">
                   <a href="#" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1">Potwierdź&nbsp;<br>

@@ -49,7 +49,7 @@ function whoIsIt($user)
             return BOSS;
         }
     }
-    else if(isset($user['u_id']))
+    else if(isset($user['clients_id']))
     {
         return CLIENT;
     }
