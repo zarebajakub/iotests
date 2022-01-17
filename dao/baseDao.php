@@ -162,7 +162,7 @@ function getOrganisations()
 
 function getLastAddedOrganisation()
 {
-	return query("SELECT * FROM organizations WHERE organization = (SELECT LAST_INSERT_ID())");
+	return query("SELECT * FROM organizations WHERE organization_id = (SELECT LAST_INSERT_ID())");
 }
 
 function getProjects($orgId)
