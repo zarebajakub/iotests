@@ -5,6 +5,12 @@ Projekt znajduje się na stronie https://student.agh.edu.pl/~jakubzar/test/. Aby
 
 ## dokumentacja użytkownika
 
+### szef
+
+### pracownik
+
+### klient
+
 ## dokumentacja techniczna
 Aplikacja zawiera kilka głównych modułów, znajdujących się w kolejnych podkatalogach:
 - common - zawiera logowanie i rejestrację od strony serwera
@@ -12,3 +18,7 @@ Aplikacja zawiera kilka głównych modułów, znajdujących się w kolejnych pod
 - dao - zawiera plik z zapytaniami sql i połączeniem z bazą danych
 - models - zawiera klasy dla każdego typu użytkownika oraz klasę tasku
 - views - zawiera główną stronę projektu oraz w odpowiednich podkatalogach, strony dla każdego typu użytkownika
+- vendor - zawiera pliki z ogólnym wyglądem strony
+- fonts i images zawierają odpowiednio czcionki oraz obrazki i ikonki wykorzystywane w projekcie
+
+Od strony serwera do aplikacji posłużył nam php, od strony użytkownika wykorzystaliśmy html, css i javascript
