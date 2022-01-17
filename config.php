@@ -1,11 +1,9 @@
 <?php
 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "localhost";
-$dbName = "projekt_io_db";
-
-$TAB_TABELA = "tabela";
+$dbHost = ""; //wpisz adres swojego hosta
+$dbUser = ""; //wpisz nazwê u¿ytkownika
+$dbPass = ""; //wpisz has³o
+$dbName = ""; //wpisz nazwê bazy danych
 
 $mysql = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 // Check connection
@@ -23,10 +21,10 @@ if (session_status() == PHP_SESSION_NONE)
     session_start();
 }
 $_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'];
-if($_SERVER['HTTP_HOST'] == 'student.agh.edu.pl')
+if($_SERVER['HTTP_HOST'] == '') //wpisz domenê serwera
 {
-  $SUB_FOLDER = '/~jakubzar/test/';
-  $_SESSION['ROOT'] = "/home/eaiibgrp/jakubzar/public_html/test/";
+  $SUB_FOLDER = ''; //wpisz podkatalog
+  $_SESSION['ROOT'] = ""; //wpisz œcie¿kê do strony
 }
     
 ?>
