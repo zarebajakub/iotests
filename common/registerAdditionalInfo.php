@@ -35,37 +35,27 @@ $url = "";
 
 if($userType == 'employee')
 {
-    $user = new User();
-    $user->password = $password;
-    $user->email = $email;
-    $user->type = EMPLOYEE;
-    $ok= registerUser($user);
+    $ok = addUserAdditionalInfo($_POST['name'], $_POST['surname'], $_POST['organisation'], $_SESSION['User']['user_id']);
     if($ok)
     {
-        $url = '/views/employee-boss-dodatkowe.php';
+        $url = '/views/employee/employee-page/index.php';
     }
 }
 else if($userType == 'project-manager')
 {
-    $user = new User();
-    $user->password = $password;
-    $user->email = $email;
-    $user->type = BOSS;
-    $ok = registerUser($user);
+    $orgId = addOrganisation($POST['organisation-name'],$_SESSION['User']['user_id']);
+    $ok = addUserAdditionalInfo($_POST['name'], $_POST['surname'], $orgId, $_SESSION['User']['user_id']);
     if($ok)
     {
-        $url = '/views/employee-boss-dodatkowe.php';
+        $url = '/views/boss/boss-page/index.php';
     }
 }
 else if($userType == 'client')
 {
-    $user = new Client();
-    $user->password = $password;
-    $user->email = $email;
-    $ok = registerClient($user);
+    $ok = addClientAdditionalInfo($_POST['name'], $_POST['surname'], $_POST['phone'], $_SESSION['User']['user_id']);
     if($ok)
     {
-        $url = '/views/klient-dodatkowe.php';
+        $url = '/views/client/client-page/index.html';
     }
 }
 

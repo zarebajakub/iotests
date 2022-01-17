@@ -70,7 +70,15 @@ function addUserAdditionalInfo($name, $surname, $organisationId, $id)
 {
     $name = makeSafeForDb($name);
     $surname = makeSafeForDb($surname);
-    return query("UPDATE users SET name = $name, surname = $surname, organisation_id = $organisationId WHERE user_id = $id");
+    return query("UPDATE users SET name = $name, surname = $surname, organization_id = $organisationId WHERE user_id = $id");
+}
+
+function addClientAdditionalInfo($name, $surname, $phone, $id)
+{
+    $name = makeSafeForDb($name);
+    $surname = makeSafeForDb($surname);
+    $phone = makeSafeForDb($phone);
+    return query("UPDATE clients SET name = $name, surname = $surname, phone = $phone WHERE clients_id = $id");
 }
 
 function registerClient(Client $client)
@@ -142,7 +150,7 @@ function addOrganisation($owner, $name)
 {
 	$owner = makeSafeForDb($owner);
     $name = makeSafeForDb($name);
-    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
+    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name) RETURNING organization_id");
 }
 
 function getOrganisations()
