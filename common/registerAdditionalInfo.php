@@ -40,7 +40,7 @@ else if($userType == 'project-manager')
     $ok = addUserAdditionalInfo($_POST['name'], $_POST['surname'], $orgId, $_SESSION['User']['user_id']);
     if($ok)
     {
-        $url = '/views/boss/boss-page/index.php';
+        $url = '/views/boss/boss-page/main-page.php';
     }
 }
 else if($userType == 'client')
@@ -49,7 +49,7 @@ else if($userType == 'client')
     $ok = addClientAdditionalInfo($_POST['name'], $_POST['surname'], $_POST['phone'], $_SESSION['User']['user_id']);
     if($ok)
     {
-        $url = '/views/client/client-page/index.html';
+        $url = '/views/client/client-page/main-page.php';
     }
 }
 
