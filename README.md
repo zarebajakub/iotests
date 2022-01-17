@@ -6,13 +6,18 @@ Projekt znajduje się na stronie https://student.agh.edu.pl/~jakubzar/test/. Aby
 ## dokumentacja użytkownika
 
 ### szef
-wgląd w aktualne projekty, podgląd pracowników oraz przypisanych zadań, dodawanie zadań
+- wgląd w aktualne projekty
+- podgląd pracowników
+- dodawanie zadań
+- przypisanych zadań
 
 ### pracownik
-podgląd swoich zadań, oznaczanie jako wykonane
+- podgląd swoich zadań
+- oznaczanie zadań jako wykonane
 
 ### klient
-dodawanie zleceń, podgląd zleceń i wykonawców
+- dodawanie zleceń
+- podgląd zleceń i wykonawców
 
 ## dokumentacja techniczna
 Aplikacja zawiera kilka głównych modułów, znajdujących się w kolejnych podkatalogach:
