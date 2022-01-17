@@ -22,9 +22,9 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Strona Główna</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="main-page.css" media="screen">
-    <link rel="icon" href="images/Logo.png">
+    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="css/main-page.css" media="screen">
+    <link rel="icon" href="../../images/Logo.png">
 
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
@@ -47,7 +47,7 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
 <header class="u-clearfix u-header u-header" id="sec-9336">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
-            <img src="images/Logo.png" class="u-logo-image u-logo-image-1">
+            <img src="../../images/Logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -74,20 +74,20 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                             href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Moje-zlecenia.php" style="padding: 10px 20px;">Moje zlecenia</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                                href="moje-zlecenia.php" style="padding: 10px 20px;">Moje zlecenia</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="wykonawcy.html" style="padding: 10px 20px;">Wykonawcy</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="../../welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -99,16 +99,16 @@ if(!isset($organisations[0]) && is_array($organisations) && !empty($organisation
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Moje-zlecenia.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="moje-zlecenia.php"
                                                       style="padding: 10px 20px;">Moje zlecenia</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Wykonawcy.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="wykonawcy.html"
                                                       style="padding: 10px 20px;">Wykonawcy</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
