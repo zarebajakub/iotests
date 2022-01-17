@@ -150,7 +150,7 @@ function addProjectForOrganisation($orgId, $clientId, $desc)
 
 function addOrganisation($owner, $name)
 {
-	$owner = makeSafeForDb($owner);
+    $owner = makeSafeForDb($owner);
     $name = makeSafeForDb($name);
     return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
 }
