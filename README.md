@@ -1,17 +1,24 @@
-# iotests
-how to do all the stuff
+# GetOrganized
 
-## instructions
-1. start Apache and MySQL in XAMPP
-2. go to C:\xampp\htdocs and create folder
-3. clone repo there
-4. go to localhost/phpmyadmin/, konta użytkowników, root localhost i zmiana hasła na <i>localhost</i>
-5. go to C:\xampp\phpMyAdmin\config.inc.php and change password in line 21 to <i>localhost</i>
-6. go to localhost/phpmyadmin/ and import file tabela.sql
+## instrukcja konfiguracji
+Projekt znajduje się na stronie https://student.agh.edu.pl/~jakubzar/test/. Aby uruchomić go na swoim serwerze, należy utworzyć bazę danych przy użyciu database.sql oraz dokonać edycji w pliku config.php. Należy to zrobić umieszczając odpowiednie dane logowania do utworzonej bazy w liniach 3-8, oraz linie ? podmienić na ścieżkę do katalogu głównego projektu na serwerze.
 
-7. check if everything is ok:
-- on localhost/test/test.php you should have colorful tile
-- on localhost/test/index.php you should have list of elements from database
-- note: if google opens try with http://
+## dokumentacja użytkownika
 
-8. check pushing a commit
+### szef
+
+### pracownik
+
+### klient
+
+## dokumentacja techniczna
+Aplikacja zawiera kilka głównych modułów, znajdujących się w kolejnych podkatalogach:
+- common - zawiera logowanie i rejestrację od strony serwera
+- controllers - zawiera akcje dodawania projektu oraz pojedynczego tasku
+- dao - zawiera plik z zapytaniami sql i połączeniem z bazą danych
+- models - zawiera klasy dla każdego typu użytkownika oraz klasę tasku
+- views - zawiera główną stronę projektu oraz w odpowiednich podkatalogach, strony dla każdego typu użytkownika
+- vendor - zawiera pliki z ogólnym wyglądem strony
+- fonts i images zawierają odpowiednio czcionki oraz obrazki i ikonki wykorzystywane w projekcie
+
+Od strony serwera do aplikacji posłużył nam php, od strony użytkownika wykorzystaliśmy html, css i javascript

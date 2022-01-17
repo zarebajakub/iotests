@@ -20,9 +20,9 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Projekty</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="Projekty.css" media="screen">
-    <link rel="icon" href="images/Untitled.png">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="css/projekty.css" media="screen">
+    <link rel="icon" href="../../images/Untitled.png">
 
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
@@ -46,7 +46,7 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
 <header class="u-clearfix u-header u-header" id="sec-9336">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
-            <img src="images/Untitled.png" class="u-logo-image u-logo-image-1">
+            <img src="../../images/Untitled.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -74,15 +74,15 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
+                                href="projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                                href="profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -94,13 +94,13 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="main-page.php"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Welcome-Page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>

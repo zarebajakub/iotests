@@ -33,9 +33,9 @@ else { $projects = []; }
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Projekty</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="../../css/nicepage.css" media="screen">
     <link rel="stylesheet" href="../../css/Projekty.css" media="screen">
-    <link rel="icon" href="images/Untitled.png">
+    <link rel="icon" href="../../images/Untitled.png">
 
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
@@ -59,7 +59,7 @@ else { $projects = []; }
 <header class="u-clearfix u-header u-header" id="sec-9336">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
-            <img src="images/Untitled.png" class="u-logo-image u-logo-image-1">
+            <img src="../../images/Untitled.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -86,16 +86,20 @@ else { $projects = []; }
                             href="main-page.php" style="padding: 10px 20px;">Strona Główna</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Profil.php" style="padding: 10px 20px;">Profil</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="profil.php" style="padding: 10px 20px;">Profil</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Projekty.php" style="padding: 10px 20px;">Projekty</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="projekty.php" style="padding: 10px 20px;">Projekty</a>
                     </li>
                     <li class="u-nav-item"><a
-                            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            href="Pracownicy.html" style="padding: 10px 20px;">Pracownicy</a>
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="pracownicy.html" style="padding: 10px 20px;">Pracownicy</a>
+                    </li>
+                    <li class="u-nav-item"><a
+                                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                href="dodaj-zadanie.html" style="padding: 10px 20px;">Dodaj zadanie</a>
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -112,14 +116,17 @@ else { $projects = []; }
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Strona-Główna.html"
                                                       style="padding: 10px 20px;">Strona Główna</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Projekty.php"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="projekty.php"
                                                       style="padding: 10px 20px;">Projekty</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pracownicy.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="pracownicy.html"
                                                       style="padding: 10px 20px;">Pracownicy</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="dodaj-zadanie.html"
+                                                      style="padding: 10px 20px;">Dodaj zadanie</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
