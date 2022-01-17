@@ -152,7 +152,7 @@ function addOrganisation($owner, $name)
 {
 	$owner = makeSafeForDb($owner);
     $name = makeSafeForDb($name);
-    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name) RETURNING organization_id");
+    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name) RETURNING organization_id;");
 }
 
 function getOrganisations()
