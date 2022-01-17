@@ -21,6 +21,7 @@ $email = htmlentities($_POST['email']);
 $password = $_POST['pass'];
 $repeat_password = $_POST['pass-repeat'];
 
+
 if($user)
 {
     redirect('signup.php', ['To konto już istnieje']);
