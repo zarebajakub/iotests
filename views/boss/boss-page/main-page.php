@@ -83,7 +83,7 @@ $doc_root = $_SESSION['ROOT'];
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="../../welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -107,7 +107,7 @@ $doc_root = $_SESSION['ROOT'];
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="dodaj-zadanie.html"
                                                       style="padding: 10px 20px;">Dodaj zadanie</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../welcome-Page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>

@@ -13,11 +13,16 @@ if(!isset($projects[0]) && is_array($projects) && !empty($projects))
     $projects = [$projects];
 }
 
-foreach($projects as $project)
+if($projects !== false && count($projects) > 0 )
 {
-    $project['tasks'] = getTasksOfProject($project['project_id']);
-    $project['tasks'] = [$project['tasks']];
+    foreach($projects as $project)
+    {
+        $project['tasks'] = getTasksOfProject($project['project_id']);
+        $project['tasks'] = [$project['tasks']];
+    }
 }
+else { $projects = []; }
+
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -98,7 +103,7 @@ foreach($projects as $project)
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="../../welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
 
                 </ul>
@@ -123,7 +128,7 @@ foreach($projects as $project)
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="dodaj-zadanie.html"
                                                       style="padding: 10px 20px;">Dodaj zadanie</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../welcome-Page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
                         </ul>
                     </div>
@@ -134,6 +139,11 @@ foreach($projects as $project)
     </div>
 </header>
 <section class="u-align-left u-clearfix u-section-1" id="sec-2332">
+    <div class="u-container-layout u-container-layout-1">
+        <a class="u-align-right u-border-1 u-border-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-10 u-text-black u-text-hover-white u-btn-1"
+            href="add-task.php">
+            Dodaj Zadanie </a>
+    </div>
     <div class="u-clearfix u-sheet u-sheet-1">
 
         <?php foreach($projects as $project) { ?>

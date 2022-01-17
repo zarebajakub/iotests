@@ -82,7 +82,7 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
                     </li>
                     <li class="u-nav-item"><a
                                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                href="../../welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
+                                href="../../Welcome-Page.html" style="padding: 10px 20px;">Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -100,7 +100,7 @@ if (!isset($tasks[0]) && is_array($tasks) && !empty($tasks)) {
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" href="profil.php"
                                                       style="padding: 10px 20px;">Profil</a>
                             </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../welcome-Page.html"
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../../Welcome-Page.html"
                                                       style="padding: 10px 20px;">Wyloguj</a>
                             </li>
                         </ul>
