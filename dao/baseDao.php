@@ -152,12 +152,17 @@ function addOrganisation($owner, $name)
 {
 	$owner = makeSafeForDb($owner);
     $name = makeSafeForDb($name);
-    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name) RETURNING organization_id;");
+    return query("INSERT INTO organizations(owner, name) VALUES ($owner, $name)");
 }
 
 function getOrganisations()
 {
 	return query("SELECT * FROM organizations");
+}
+
+function getLastAddedOrganisation()
+{
+	return query("SELECT * FROM organizations WHERE organization = (SELECT LAST_INSERT_ID())");
 }
 
 function getProjects($orgId)
